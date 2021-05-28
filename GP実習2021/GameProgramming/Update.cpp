@@ -11,6 +11,8 @@
 CTexture TextureChara1; //主人公画像
 CTexture TextureChara1Attack;	//主人公画像2
 CTexture Texture2; //マップの画像
+CTexture TextureChara2;	//ヒロイン画像
+CTexture TextureChara2Attack;	//ヒロイン画像2
 
 CTexture TextureEnemy1; //敵画像1
 CTexture TextureEnemy2; //敵画像2
@@ -46,11 +48,13 @@ CSceneManager SceneManager;
 //Init関数
 //最初に一度だけ呼ばれる関数
 void Init() {
-	TextureChara1.Load("resource\\ch101.tga");
+	TextureChara1.Load("resource\\hasiri.tga");
 	TextureChara1Attack.Load("resource\\ch102.tga");
 
+	TextureChara2.Load("resource\\ch201.tga");
+	TextureChara2Attack.Load("resource\\ch202.tga");
 
-	TextureEnemy1.Load("resource\\em101.tga");
+	TextureEnemy1.Load("resource\\same.tga");
 
 	TextureEnemy2.Load("resource\\em201.tga"); 
 

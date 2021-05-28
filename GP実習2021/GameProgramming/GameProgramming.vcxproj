@@ -113,6 +113,7 @@
     <ClCompile Include="CScore.cpp" />
     <ClCompile Include="CSmg.cpp" />
     <ClCompile Include="CSound.cpp" />
+    <ClCompile Include="CSSearch.cpp" />
     <ClCompile Include="CText.cpp" />
     <ClCompile Include="CTexture.cpp" />
     <ClCompile Include="CWakame.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="CScore.h" />
     <ClInclude Include="CSmg.h" />
     <ClInclude Include="CSound.h" />
+    <ClInclude Include="CSSearch.h" />
     <ClInclude Include="CText.h" />
     <ClInclude Include="CTexture.h" />
     <ClInclude Include="CWakame.h" />

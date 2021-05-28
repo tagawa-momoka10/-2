@@ -10,6 +10,8 @@ public:
 	CBase();
 	static int mFx, mFy;	//‰¡ˆÚ“®,‰œs‚«ˆÚ“®
 	CRectangle mRect;
+	CRectangle mRect1;
+
 	bool mEnabled;
 	virtual void Collision(CBase *i,CBase *y){}
 	enum ETag{
@@ -17,11 +19,11 @@ public:
 		EITEM2,
 		EITEM3,
 		EITEM4,
-		EHARPOON,
 		EPLAYER,			//ålŒö
 		EPLAYERATTACK,	//UŒ‚
 		EENEMY_F,
 		EENEMYATTACK_F,
+		EENEMMY_SS,
 		EENEMY_S,
 		EENEMYATTACK_S,
 		EBOSS,
@@ -34,7 +36,7 @@ public:
 		EPLAYERHP,
 		EKIHOU,
 		EWAKAME,
-		
+		EHARPOON
 	};
 	ETag mTag;
 };

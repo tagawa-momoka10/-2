@@ -7,8 +7,8 @@
 #include "DrawTaskManager.h"
 #include "CScore.h"
 
-#define SPEED 1				//移動速度
-#define ATTACKLAG 120		//攻撃開始までのラグ
+#define SPEED 0				//移動速度
+#define ATTACKLAG 60		//攻撃開始までのラグ
 #define INVINCIBLETIME 60	//無敵時間
 #define COMBO 3*60			//コンボ持続時間2秒
 #define HP 2				//体力
@@ -30,9 +30,9 @@ CEnemy2::CEnemy2()
 , mDeathCount(0)
 {
 	m_Draw.RegistDraw(this, (DrawFunc)&CEnemy2::Render, DrawPriority::Transparent, "CEnemy2");
-	mRect.w = 50;
-	mRect.h = 80;
-	mTag = EENEMY_S;
+	mRect.w = 45;
+	mRect.h = 45;
+	mTag = EENEMY_F;
 	spInstance = this;
 }
 
@@ -42,7 +42,7 @@ void CEnemy2::Update() {
 		DrawTaskManager::GetInstance()->ChangePriority(&m_Draw);
 	}
 
-	//HPが0を切ると死亡フラグが立つ、コンボ加算、必殺技カウント加算
+	//HPが0を切ると死亡フラグが立つ
 	if (mHp <= 0 && mDeath == false){
 		mDeath = true;
 		mDeathCount = 60;
@@ -122,7 +122,7 @@ void CEnemy2::Update() {
 		mMoving = true;
 		mAniMoving++;
 		//プレイヤーに追尾して移動する
-		if (mRect.x < CPlayer::spInstance->mRect.x){
+	/*	if (mRect.x < CPlayer::spInstance->mRect.x){
 			mRect.x += SPEED;
 		}
 		else if (CPlayer::spInstance->mRect.x < mRect.x){
@@ -138,7 +138,7 @@ void CEnemy2::Update() {
 		else if (CPlayer::spInstance->mRect.y < mRect.y){
 			mRect.y -= SPEED;
 		}
-	}
+	}*/
 }
 
 void CEnemy2::Render() {

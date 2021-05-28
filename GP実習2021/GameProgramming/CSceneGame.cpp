@@ -19,6 +19,7 @@
 #include "CItem2.h"
 #include "CSmg.h"
 #include "CHarpoon.h"
+#include "CSSearch.h"
 //#include "CWakame.h"
 #include "CBubble.h"
 
@@ -51,28 +52,29 @@ void CSceneGame::Init() {
 	Bgm.Load();
 	Bgm.Repeat();*/
 
+	CSSearch*SSearch = new CSSearch();
 
 	CEnemy *Enemy = new CEnemy();
 	Enemy->mRect.x = 300;
-	Enemy->mRect.y = -300;
+	Enemy->mRect.y = -200;
 	Enemy->mRect.mEnabled = true;
 
-	/*CEnemy *Enemy2 = new CEnemy();
-	Enemy2->mRect.x = 600;
-	Enemy2->mRect.y = -100;
-	Enemy2->mRect.mEnabled = true;
+	//CEnemy *Enemy2 = new CEnemy();
+	//Enemy2->mRect.x = 600;
+	//Enemy2->mRect.y = -100;
+	//Enemy2->mRect.mEnabled = true;
 
-	CEnemy *Enemy3 = new CEnemy();
-	Enemy3->mRect.x = -900;
-	Enemy3->mRect.y = -100;
-	Enemy3->mRect.mEnabled = true;
+	//CEnemy *Enemy3 = new CEnemy();
+	//Enemy3->mRect.x = -900;
+	//Enemy3->mRect.y = -100;
+	//Enemy3->mRect.mEnabled = true;
 
 	CEnemy2 *Enemy4 = new CEnemy2();
 	Enemy4->mRect.x = -900;
 	Enemy4->mRect.y = -300;
 	Enemy4->mRect.mEnabled = true;
 
-	CEnemy2 *Enemy5 = new CEnemy2();
+	/*CEnemy2 *Enemy5 = new CEnemy2();
 	Enemy5->mRect.x = 900;
 	Enemy5->mRect.y = -300;
 	Enemy5->mRect.mEnabled = true;*/
@@ -84,6 +86,7 @@ void CSceneGame::Init() {
 	Player->mRect.y = 0;
 
 	CHarpoon*Harpoon = new CHarpoon();
+	Harpoon->mRect.mEnabled = true;
 
 	CMap2*Map = new CMap2();
 	////ŽlŠpŒ`‚É’l‚ð‘ã“ü
@@ -137,7 +140,7 @@ void CSceneGame::Init() {
 	Item5->mRect.x = 800;
 	Item5->mRect.y = 0;
 	Item5->mRect.w = 25;
-	Item5->mRect.h = 25;
+	Item5->mRect.h = 50;
 	Item5->mRect.mEnabled = true;
 
 	CItem1*Item6 = new CItem1();

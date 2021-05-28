@@ -31,9 +31,13 @@ CEnemy::CEnemy()
 , mDeathCount(0)
 {
 	m_Draw.RegistDraw(this, (DrawFunc)&CEnemy::Render, DrawPriority::Transparent, "CEnemy");
-	mRect.w = 50;
-	mRect.h = 80;
-	mTag = EENEMY_F;
+	mRect.w = 100;
+	mRect.h = 50;
+
+	mRect1.w = 50;
+	mRect1.h = 25;
+
+	mTag = EENEMY_S;
 	spInstance = this;
 }
 
@@ -116,23 +120,25 @@ void CEnemy::Update() {
 	if (mAttack == false){
 		mMoving = true;
 		mAniMoving++;
-		//プレイヤーに追尾して移動する
-		if (mRect.x < CPlayer::spInstance->mRect.x){
-			mRect.x += SPEED;
-		}
-		else if (CPlayer::spInstance->mRect.x < mRect.x){
-			mRect.x -= SPEED;
-		}
+		////プレイヤーに追尾して移動する
+		//if (mRect.x < CPlayer::spInstance->mRect.x){
+		//	mRect.x += SPEED;
+		//}
+		//else if (CPlayer::spInstance->mRect.x < mRect.x){
+		//	mRect.x -= SPEED;
+		//}
 
-		if (mRect.y < CPlayer::spInstance->mRect.y){
-			mRect.y += SPEED;
-			if (mRect.y > -140){
-				mRect.y -= SPEED;
-			}
-		}
-		else if (CPlayer::spInstance->mRect.y < mRect.y){
-			mRect.y -= SPEED;
-		}
+		//if (mRect.y < CPlayer::spInstance->mRect.y){
+		//	mRect.y += SPEED;
+		//	if (mRect.y > -140){
+		//		mRect.y -= SPEED;
+		//	}
+		//}
+		//else if (CPlayer::spInstance->mRect.y < mRect.y){
+		//	mRect.y -= SPEED;
+		//}
+
+		mRect.x += SPEED;
 	}
 
 
@@ -156,7 +162,7 @@ void CEnemy::Render() {
 				//移動していないとき
 				if (mMoving == false){
 					if (mAniAttack == -10){
-						mRect.Render(TextureEnemy1, 10, 117, 252, 8);
+						mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 					}
 					else if (mAniAttack > 10){
 						mRect.Render(TextureEnemy1, 137, 254, 764, 520);
@@ -171,10 +177,10 @@ void CEnemy::Render() {
 				//移動しているとき
 				else{
 					if (mAniMoving % 60 < 30){
-						mRect.Render(TextureEnemy1, 10, 117, 508, 264);
+						mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 					}
 					else if (mAniMoving % 60 < 60){
-						mRect.Render(TextureEnemy1, 266, 373, 508, 264);
+						mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 					}
 				}
 			}
@@ -188,16 +194,16 @@ void CEnemy::Render() {
 					//移動していないとき
 					if (mMoving == false){
 						if (mAniAttack == -10){
-							mRect.Render(TextureEnemy1, 10, 117, 252, 8);
+							mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 						}
 						else if (mAniAttack > 10){
-							mRect.Render(TextureEnemy1, 137, 254, 764, 520);
+							mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 						}
 						else if (mAniAttack > 0){
-							mRect.Render(TextureEnemy1, 12, 120, 764, 520);
+							mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 						}
 						else if (mAniAttack > -10){
-							mRect.Render(TextureEnemy1, 137, 254, 764, 520);
+							mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 						}
 					}
 					//移動しているとき
@@ -316,7 +322,25 @@ void CEnemy::Collision(CBase *i, CBase *y) {
 					//プレイヤーと接触すると攻撃フラグが立つ
 					mAttack = true;
 					mMoving = false;
+					//プレイヤーに追尾して移動する
+					if (mRect.x < CPlayer::spInstance->mRect.x){
+						mRect.x += SPEED+5;
+					}
+					else if (CPlayer::spInstance->mRect.x < mRect.x){
+						mRect.x -= SPEED-5;
+					}
+
+					if (mRect.y < CPlayer::spInstance->mRect.y){
+						mRect.y += SPEED;
+						if (mRect.y > -140){
+							mRect.y -= SPEED-5;
+						}
+					}
+					else if (CPlayer::spInstance->mRect.y < mRect.y){
+						mRect.y -= SPEED-5;
+					}
 					return;
+
 				}
 			}
 		}
