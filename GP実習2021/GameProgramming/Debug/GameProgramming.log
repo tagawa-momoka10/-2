@@ -1,19 +1,52 @@
-﻿2021/05/26 12:36:35 にビルドを開始しました。
+﻿2021/05/28 9:52:32 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\GameProgramming\GameProgramming.vcxproj" (Build ターゲット)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CEnemy2.cpp
          CEnemy2.cpp
-     1>c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cenemy2.cpp(144): error C2601: 'CEnemy2::Render' : ローカル関数の定義が正しくありません。
-                 c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cenemy2.cpp(39): この行は '{' を含んでいますが、これに対応するものがありません。
-     1>c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cenemy2.cpp(309): error C2601: 'CEnemy2::Collision' : ローカル関数の定義が正しくありません。
-                 c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cenemy2.cpp(39): この行は '{' を含んでいますが、これに対応するものがありません。
-     1>c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cenemy2.cpp(329): error C2655: 'CEnemy2::spInstance' : 現在のスコープ内で識別子が再宣言あるいは再定義されています。
-                 c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cenemy2.h(28) : 'CEnemy2::spInstance' の宣言を確認してください。
-     1>c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cenemy2.cpp(329): error C2086: 'CEnemy2 *CEnemy2::spInstance' : 再定義されました。
-                 c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cenemy2.h(28) : 'spInstance' の宣言を確認してください。
-     1>c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cenemy2.cpp(330): fatal error C1075: 左側 中かっこ '{' に対応するものが 'c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cenemy2.cpp(39)' で見つかる前に EOF が検出されました。
-     1>プロジェクト "C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\GameProgramming\GameProgramming.vcxproj" (Build ターゲット) のビルドが終了しました -- 失敗。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Debug\GameProgramming.exe" /INCREMENTAL /NOLOGO glew32.lib glfw3.lib glfw3dll.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Debug\GameProgramming.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Debug\GameProgramming.lib" /MACHINE:X86 Debug\CBubble.obj
+         Debug\CBase.obj
+         Debug\CEnemy.obj
+         Debug\CEnemy2.obj
+         Debug\CEnemyAttack.obj
+         Debug\CEnemyBoss.obj
+         Debug\CHarpoon.obj
+         Debug\CPlayerHP.obj
+         Debug\CIcon1.obj
+         Debug\CIcon2.obj
+         Debug\CItem1.obj
+         Debug\CItem2.obj
+         Debug\CItem3.obj
+         Debug\CItem4.obj
+         Debug\CKey.obj
+         Debug\CMap.obj
+         Debug\CMap2.obj
+         Debug\CPlayer.obj
+         Debug\CPlayerAttack.obj
+         Debug\CRectangle.obj
+         Debug\CSceneGame.obj
+         Debug\CSceneGame2.obj
+         Debug\CSceneGameBoss.obj
+         Debug\CSceneGameOver.obj
+         Debug\CSceneManager.obj
+         Debug\CSceneResult.obj
+         Debug\CSceneTitle.obj
+         Debug\CScore.obj
+         Debug\CSmg.obj
+         Debug\CSound.obj
+         Debug\CSSearch.obj
+         Debug\CText.obj
+         Debug\CTexture.obj
+         Debug\CWakame.obj
+         Debug\DrawTask.obj
+         Debug\DrawTaskManager.obj
+         Debug\Task.obj
+         Debug\TaskManager.obj
+         Debug\Update.obj
+         Debug\main.obj
+         GameProgramming.vcxproj -> C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Debug\GameProgramming.exe
+     1>プロジェクト "C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\GameProgramming\GameProgramming.vcxproj" (Build ターゲット) のビルドが完了しました。
 
-ビルドに失敗しました。
+ビルドに成功しました。
 
-経過時間 00:00:01.12
+経過時間 00:00:01.43

@@ -38,7 +38,7 @@ CEnemy2::CEnemy2()
 
 void CEnemy2::Update() {
 
-	if (mRect.y>CPlayer::spInstance->mRect.y ){
+	if (mRect.y > CPlayer::spInstance->mRect.y){
 		DrawTaskManager::GetInstance()->ChangePriority(&m_Draw);
 	}
 
@@ -122,23 +122,25 @@ void CEnemy2::Update() {
 		mMoving = true;
 		mAniMoving++;
 		//ƒvƒŒƒCƒ„[‚É’Ç”ö‚µ‚ÄˆÚ“®‚·‚é
-	/*	if (mRect.x < CPlayer::spInstance->mRect.x){
-			mRect.x += SPEED;
-		}
-		else if (CPlayer::spInstance->mRect.x < mRect.x){
-			mRect.x -= SPEED;
-		}
+		/*	if (mRect.x < CPlayer::spInstance->mRect.x){
+				mRect.x += SPEED;
+				}
+				else if (CPlayer::spInstance->mRect.x < mRect.x){
+				mRect.x -= SPEED;
+				}
 
-		if (mRect.y < CPlayer::spInstance->mRect.y){
-			mRect.y += SPEED;
-			if (mRect.y > -140){
+				if (mRect.y < CPlayer::spInstance->mRect.y){
+				mRect.y += SPEED;
+				if (mRect.y > -140){
 				mRect.y -= SPEED;
-			}
-		}
-		else if (CPlayer::spInstance->mRect.y < mRect.y){
-			mRect.y -= SPEED;
-		}
-	}*/
+				}
+				}
+				else if (CPlayer::spInstance->mRect.y < mRect.y){
+				mRect.y -= SPEED;
+				}
+				*/
+	}
+
 }
 
 void CEnemy2::Render() {
