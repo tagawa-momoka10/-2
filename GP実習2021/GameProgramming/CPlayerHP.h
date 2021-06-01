@@ -11,6 +11,7 @@ private:
 	float m_Min; // 最小値
 	DrawTask mDraw;		//描画タスク操作
 	void Update();
+	int mAniCnt;	//アニメーションカウント
 
 public:
 	CPlayerHP();
@@ -36,14 +37,7 @@ public:
 	int mPositionY2;	//Y座標記憶
 	int mPositionX2;
 
-	int mPositionY3;	//Y座標記憶
-	int mPositionX3;
 
-	int mPositionY4;	//Y座標記憶
-	int mPositionX4;
-
-	int mPositionY5;	//Y座標記憶
-	int mPositionX5;
 
 	float getMax();
 	float getMin();
@@ -71,9 +65,6 @@ public:
 
 	CRectangle m_Rect1;
 	CRectangle m_Rect2;
-	CRectangle m_Rect3;
-	CRectangle m_Rect4;
-	CRectangle m_Rect5;
 };
 
 

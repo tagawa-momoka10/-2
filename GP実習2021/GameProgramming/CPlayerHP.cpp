@@ -5,100 +5,96 @@
 #include "minmax.h"
 #include "CPlayer.h"
 
-extern CTexture TexturePlayerHPm;//主人公HP max
-extern CTexture TexturePlayerHPh;//半分 harf
-extern CTexture TexturePlayerHPe;//カラ empty
+extern CTexture TexturePlayerHP;//主人公HP
+extern CTexture TexturePlayerHPb;//HPバック
 
 CPlayerHP::CPlayerHP()
 :m_Max(10), m_Min(0)
-, mPositionX1(0), mPositionX2(0), mPositionX3(0), mPositionX4(0), mPositionX5(0)
-, mPositionY1(0), mPositionY2(0), mPositionY3(0), mPositionY4(0), mPositionY5(0)
+, mPositionX1(0), mPositionX2(0),
+  mPositionY1(0), mPositionY2(0)
 {
 	//描画タスクに登録
 	mDraw.RegistDraw(this, (DrawFunc)&CPlayerHP::Render, DrawPriority::Transparent, "CPlayerHP");
 	mTag = EPLAYERHP;
 	
-	m_Rect1.x = -550;
-	m_Rect1.y = 300;
-	m_Rect1.w = 30;
-	m_Rect1.h = 30;
+	m_Rect1.x = 200;
+	m_Rect1.y = 50;
+	m_Rect1.w = 100;
+	m_Rect1.h = 25;
 
-	m_Rect2.x = -480;
-	m_Rect2.y = 300;
-	m_Rect2.w = 30;
-	m_Rect2.h = 30;
+	m_Rect2.x = 200;
+	m_Rect2.y = 50;
+	m_Rect2.w = 100;
+	m_Rect2.h = 25;
 
-	m_Rect3.x = -410;
-	m_Rect3.y = 300;
-	m_Rect3.w = 30;
-	m_Rect3.h = 30;
-
-	m_Rect4.x = -330;
-	m_Rect4.y = 300;
-	m_Rect4.w = 30;
-	m_Rect4.h = 30;
-
-	m_Rect5.x = -260;
-	m_Rect5.y = 300;
-	m_Rect5.w = 30;
-	m_Rect5.h = 30;
 	spInstance = this;
+
 }
 
 void CPlayerHP::Update(){
-	
+	//mPositionY1 = m_Rect1.y;
+	//mPositionX1 = m_Rect1.x;
+	//m_Rect1.x = CPlayer::mPlayerPosition ;
+	//m_Rect1.y = CPlayer::mPlayerPosition ;
+
+	//mPositionY2 = m_Rect2.y;
+	//mPositionX2 = m_Rect2.x;
+	//m_Rect2.x = CPlayer::mPlayerPosition ;
+	//m_Rect2.y = CPlayer::mPlayerPosition ;
+
+	CPlayer::mMoving = false;
+	if (CPlayer::mChara1Hp > 0){
+		if (CPlayer::mAttackCount <= 0 ){
+
+			if (CKey::Push('A')) {
+				CPlayer::mMoving = true;
+				if (CPlayer::mCharaSwitch == true){
+					CPlayer::spInstance->mRect.x = mRect.x + CPlayer::mPlayerPosition;
+					CPlayer::mMoving = true;
+				}
+			}
+			if (CKey::Push('D')) {
+				CPlayer::mMoving = true;
+				if (CPlayer::mCharaSwitch == true){
+					CPlayer::spInstance->mRect.x = mRect.x + CPlayer::mPlayerPosition;
+					CPlayer::mMoving = true;
+				}
+			}
+			if (CKey::Push('W')){
+				CPlayer::mMoving = true;
+				if (CPlayer::mCharaSwitch == true){
+					CPlayer::spInstance->mRect.y = mRect.y + CPlayer::mPlayerPosition;
+					CPlayer::mMoving = true;
+				}
+			}
+			if (CKey::Push('S')){
+				CPlayer::mMoving = true;
+				if (CPlayer::mCharaSwitch == true){
+					CPlayer::spInstance->mRect.y = mRect.y + CPlayer::mPlayerPosition;
+					CPlayer::mMoving = true;
+				}
+			}
+		}
+		if (CPlayer::mMoving == true){
+			mAniMoving++;
+		}
+		if (CPlayer::mMoving == false){
+			CPlayer::mMoving = INITIALIZE;
+		}
+
+		if (CKey::Once('J') /*&& mJflag == false*/){
+			CPlayer::spInstance->mRect.y = mRect.y + CPlayer::mPlayerPosition;
+			CPlayer::spInstance->mRect.x = mRect.x + CPlayer::mPlayerPosition;
+			CPlayer::mMoving = true;
+		}
+
 }
 
 void CPlayerHP::Render() {
-	if (CPlayer::mChara1Hp == 10){
-		m_Rect5.Render(TexturePlayerHPm, 0, TexturePlayerHPm.mHeader.width, TexturePlayerHPm.mHeader.height, 0);
-	}
-	else if (CPlayer::mChara1Hp == 9){
-		m_Rect5.Render(TexturePlayerHPh, 0, TexturePlayerHPh.mHeader.width, TexturePlayerHPh.mHeader.height, 0);
-	}
-	else {
-		m_Rect5.Render(TexturePlayerHPe, 0, TexturePlayerHPe.mHeader.width, TexturePlayerHPe.mHeader.height, 0);
-	}
+	m_Rect1.Render(TexturePlayerHP, 0, 200, 50, 0);
 
-	if (CPlayer::mChara1Hp > 7){
-		m_Rect4.Render(TexturePlayerHPm, 0, TexturePlayerHPm.mHeader.width, TexturePlayerHPm.mHeader.height, 0);
-	}
-	else if (CPlayer::mChara1Hp == 7){
-		m_Rect4.Render(TexturePlayerHPh, 0, TexturePlayerHPh.mHeader.width, TexturePlayerHPh.mHeader.height, 0);
-	}
-	else {
-		m_Rect4.Render(TexturePlayerHPe, 0, TexturePlayerHPe.mHeader.width, TexturePlayerHPe.mHeader.height, 0);
-	}
-
-	if (CPlayer::mChara1Hp > 5){
-		m_Rect3.Render(TexturePlayerHPm, 0, TexturePlayerHPm.mHeader.width, TexturePlayerHPm.mHeader.height, 0);
-	}
-	else if (CPlayer::mChara1Hp == 5){
-		m_Rect3.Render(TexturePlayerHPh, 0, TexturePlayerHPh.mHeader.width, TexturePlayerHPh.mHeader.height, 0);
-	}
-	else {
-		m_Rect3.Render(TexturePlayerHPe, 0, TexturePlayerHPe.mHeader.width, TexturePlayerHPe.mHeader.height, 0);
-	}
-
-	if (CPlayer::mChara1Hp > 3){
-		m_Rect2.Render(TexturePlayerHPm, 0, TexturePlayerHPm.mHeader.width, TexturePlayerHPm.mHeader.height, 0);
-	}
-	else if (CPlayer::mChara1Hp == 3){
-		m_Rect2.Render(TexturePlayerHPh, 0, TexturePlayerHPh.mHeader.width, TexturePlayerHPh.mHeader.height, 0);
-	}
-	else {
-		m_Rect2.Render(TexturePlayerHPe, 0, TexturePlayerHPe.mHeader.width, TexturePlayerHPe.mHeader.height, 0);
-	}
-
-	if (CPlayer::mChara1Hp > 1){
-		m_Rect1.Render(TexturePlayerHPm, 0, TexturePlayerHPm.mHeader.width, TexturePlayerHPm.mHeader.height, 0);
-	}
-	else if (CPlayer::mChara1Hp == 1){
-		m_Rect1.Render(TexturePlayerHPh, 0, TexturePlayerHPh.mHeader.width, TexturePlayerHPh.mHeader.height, 0);
-	}
-	else {
-		m_Rect1.Render(TexturePlayerHPe, 0, TexturePlayerHPe.mHeader.width, TexturePlayerHPe.mHeader.height, 0);
-	}
+	m_Rect2.Render(TexturePlayerHP, 0, 200, 50, 0);
+	
 }
 
 // 最大値、最小値、現在値のゲッター

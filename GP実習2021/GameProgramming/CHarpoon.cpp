@@ -91,6 +91,7 @@ void CHarpoon::Update() {
 		if (CKey::Once('J') /*&& mJflag == false*/){
 			CPlayer::spInstance->mRect.y = mRect.y + CPlayer::mPlayerPosition;
 			CPlayer::spInstance->mRect.x = mRect.x + CPlayer::mPlayerPosition;
+			CPlayer::mMoving = true;
 		}
 		mRect.y += mj;
 
