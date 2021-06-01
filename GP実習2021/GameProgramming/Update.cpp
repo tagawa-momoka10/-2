@@ -14,7 +14,9 @@ CTexture Texture2; //ƒ}ƒbƒv‚Ì‰æ‘œ
 CTexture TextureChara2;	//ƒqƒƒCƒ“‰æ‘œ
 CTexture TextureChara2Attack;	//ƒqƒƒCƒ“‰æ‘œ2
 
+CTexture TextureEnemy; //“G‰æ‘œ
 CTexture TextureEnemy1; //“G‰æ‘œ1
+
 CTexture TextureEnemy2; //“G‰æ‘œ2
 
 CTexture TexturePlayerHPm;//ålŒöHP max
@@ -54,7 +56,8 @@ void Init() {
 	TextureChara2.Load("resource\\ch201.tga");
 	TextureChara2Attack.Load("resource\\ch202.tga");
 
-	TextureEnemy1.Load("resource\\same.tga");
+	TextureEnemy.Load("resource\\same.tga");
+	TextureEnemy1.Load("resource\\same s.tga");
 
 	TextureEnemy2.Load("resource\\em201.tga"); 
 

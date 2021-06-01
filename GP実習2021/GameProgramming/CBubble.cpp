@@ -13,12 +13,12 @@ CBubble::CBubble(){
 	mRect.y = 100;
 	mRect.w = 25;
 	mRect.h = 25;
+	mTag = EKIHOU;
 
 }
 
 
 void CBubble::Update(){
-	mTag = EKIHOU;
 	mEnabled = true;
 	mRect.y += 1;
 

@@ -18,17 +18,15 @@ bool CWakame::mMoving;
 CWakame::CWakame(){
 	mDraw.RegistDraw(this, (DrawFunc)&CWakame::Render, DrawPriority::Transparent, "CWakame");
 	mTag = EWAKAME;
-	mRect.x = 0;
-	mRect.y = 0;
+	mRect.x = 40;
+	mRect.y = 100;
 	mRect.w = 20;
-	mRect.h = 80;
+	mRect.h = 50;
 	mAniMoving = INITIALIZE;
 
 }
 
 void CWakame::Update(){
-
-
 
 }
 

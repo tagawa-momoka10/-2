@@ -35,7 +35,7 @@ void CSSearch::Update() {
 	if (mAttack == false){
 		mMoving = true;
 		mAniMoving++;
-		//プレイヤーに追尾して移動する
+		//本体に追尾して移動する
 		if (mRect.x < CEnemy::spInstance->mRect.x){
 		}
 		else if (CEnemy::spInstance->mRect.x < mRect.x){
@@ -69,13 +69,13 @@ void CSSearch::Render() {
 				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 			else if (mAniAttack > 10){
-				mRect.Render(TextureEnemy1, 137, 254, 764, 520);
+				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 			else if (mAniAttack > 0){
-				mRect.Render(TextureEnemy1, 12, 120, 764, 520);
+				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 			else if (mAniAttack > -10){
-				mRect.Render(TextureEnemy1, 137, 254, 764, 520);
+				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 		}
 		//移動しているとき
@@ -108,10 +108,10 @@ void CSSearch::Render() {
 		//移動しているとき
 		else{
 			if (mAniMoving % 60 < 30){
-				mRect.Render(TextureEnemy1, 10, 117, 508, 264);
+				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 			else if (mAniMoving % 60 < 60){
-				mRect.Render(TextureEnemy1, 266, 373, 508, 264);
+				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 		}
 	}
@@ -124,27 +124,27 @@ void CSSearch::Render() {
 		//移動していないとき
 		if (mMoving == false){
 			if (mAniAttack == -10){
-				mRect.Render(TextureEnemy1, 117, 10, 252, 8);
+				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 			//攻撃アニメーション
 			else if (mAniAttack > 10){
-				mRect.Render(TextureEnemy1, 254, 137, 764, 520);
+				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 			else if (mAniAttack > 0){
-				mRect.Render(TextureEnemy1, 120, 13, 764, 520);
+				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 			else if (mAniAttack >= -10){
-				mRect.Render(TextureEnemy1, 254, 137, 764, 520);
+				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 		}
 		//移動しているとき
 		else{
 			//移動アニメーション
 			if (mAniMoving % 60 < 30){
-				mRect.Render(TextureEnemy1, 117, 10, 508, 264);
+				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 			else if (mAniMoving % 60 < 60){
-				mRect.Render(TextureEnemy1, 373, 266, 508, 264);
+				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 			}
 		}
 	}
@@ -154,27 +154,27 @@ void CSSearch::Render() {
 	//移動していないとき
 	if (mMoving == false){
 		if (mAniAttack == -10){
-			mRect.Render(TextureEnemy1, 117, 10, 252, 8);
+			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 		}
 		//攻撃アニメーション
 		else if (mAniAttack > 10){
-			mRect.Render(TextureEnemy1, 254, 137, 764, 520);
+			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 		}
 		else if (mAniAttack > 0){
-			mRect.Render(TextureEnemy1, 120, 13, 764, 520);
+			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 		}
 		else if (mAniAttack >= -10){
-			mRect.Render(TextureEnemy1, 254, 137, 764, 520);
+			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 		}
 	}
 	//移動しているとき
 	else{
 		//移動アニメーション
 		if (mAniMoving % 60 < 30){
-			mRect.Render(TextureEnemy1, 117, 10, 508, 264);
+			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 		}
 		else if (mAniMoving % 60 < 60){
-			mRect.Render(TextureEnemy1, 373, 266, 508, 264);
+			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
 		}
 
 	}
@@ -184,40 +184,17 @@ void CSSearch::Render() {
 
 void CSSearch::Collision(CBase *i, CBase *y) {
 	//プレイヤー1と当たったとき
-
 	if (y->mTag == EPLAYER){
 		if (y->mEnabled){
 			if (mRect.Collision(y->mRect)){
-				//プレイヤーと接触すると攻撃フラグが立つ
-				mAttack = true;
-				mMoving = false;
-				//プレイヤーに追尾して移動する
-				if (mRect.x < CEnemy::spInstance->mRect.x){
+				if (mAttack == true && mAttackLag == 0){
+					mEnabled = false;
+
 
 				}
-				else if (CEnemy::spInstance->mRect.x < mRect.x){
-				}
-
-				if (mRect.y < CEnemy::spInstance->mRect.y){
-					if (mRect.y > -140){
-					}
-				}
-				else if (CEnemy::spInstance->mRect.y < mRect.y){
-				}
-				return;
-
 			}
 		}
 	}
 
-	if (mRect.y - CEnemy::spInstance->mRect.y < 20){
-		if (y->mTag == EPLAYERATTACK){
-			if (mRect.Collision(y->mRect)){
-				//無敵状態で無ければ
-
-				return;
-			}
-		}
-	}
 }
 CSSearch*CSSearch::spInstance = 0;
