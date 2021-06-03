@@ -59,7 +59,7 @@ void Init() {
 	TextureEnemy.Load("resource\\same.tga");
 	TextureEnemy1.Load("resource\\same s.tga");
 
-	TextureEnemy2.Load("resource\\em201.tga"); 
+	//TextureEnemy2.Load("resource\\em201.tga"); 
 
 
 	TexturePlayerHP.Load("resource\\HP.tga");//ålŒöHP max

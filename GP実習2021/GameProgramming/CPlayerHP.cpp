@@ -175,4 +175,3 @@ bool CPlayerHP::isFull(){
 float CPlayerHP::rate(){
 	return (get() / getMax()); // åªç›íl / ç≈ëÂíl
 }
-CPlayerHP*CPlayerHP::spInstance = 0;
