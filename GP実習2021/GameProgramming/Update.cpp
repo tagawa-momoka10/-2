@@ -19,9 +19,8 @@ CTexture TextureEnemy1; //敵画像1
 
 CTexture TextureEnemy2; //敵画像2
 
-CTexture TexturePlayerHPm;//主人公HP max
-CTexture TexturePlayerHPh;//半分 harf
-CTexture TexturePlayerHPe;//カラ empty
+CTexture TexturePlayerHP;//主人公HP
+CTexture TexturePlayerHPb;//HPバック
 
 CTexture Texturech_icon1;	//主人公アイコン
 
@@ -41,6 +40,7 @@ CTexture TextureSp_MG3;//必殺技ゲージ完全
 CTexture TextureSp_MGg;//ゲージ
 
 CTexture Texturekihou;//気泡
+CTexture TextureBuki;//武器
 
 //シーンマネージャのインスタンス
 CSceneManager SceneManager;
@@ -62,9 +62,9 @@ void Init() {
 	TextureEnemy2.Load("resource\\em201.tga"); 
 
 
-	TexturePlayerHPm.Load("resource\\HeroHeart1.tga");//主人公HP max
-	TexturePlayerHPh.Load("resource\\HeroHeart2.tga");//半分 harf
-	TexturePlayerHPe.Load("resource\\HeroHeart3.tga");//カラ empty
+	TexturePlayerHP.Load("resource\\HP.tga");//主人公HP max
+	TexturePlayerHPb.Load("resource\\HPg.tga");//主人公HPバック
+
 
 
 	Texturech_icon1.Load("resource\\ch_icon1.tga");//主人公
@@ -87,6 +87,8 @@ void Init() {
 	TextureSp_MGg.Load("resource\\Sp_MGg.tga");
 
 	Texturekihou.Load("resource\\kihou.tga");
+	TextureBuki.Load("resource\\mori.tga");
+
 	//シーンマネージャの初期化
 	SceneManager.Init();
 }

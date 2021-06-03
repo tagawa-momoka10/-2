@@ -19,8 +19,8 @@
 
 
 //extern：他のソースファイルの外部変数にアクセスする宣言
-extern CTexture TextureChara2;
-extern CTexture TextureChara2Attack;
+extern CTexture TextureBuki;//武器
+
 
 int CHarpoon::mAttackCount;
 CHarpoon*CHarpoon::spInstance = 0;
@@ -41,8 +41,8 @@ CHarpoon::CHarpoon()
 	mTag = EHARPOON;
 	mRect.x = -450;
 	mRect.y = -200;
-	mRect.w = 80;
-	mRect.h = 20;
+	mRect.w = 100;
+	mRect.h = 5;
 	spInstance = this;
 	mAttackCount = INITIALIZE;
 }
@@ -181,10 +181,10 @@ void CHarpoon::Render() {
 	if (mChara2DieFlg == false){
 		if (CPlayer::mMoving == false && mAttackCount <= 0 && mInvincibleTime == 0 && mdflag == false){
 				if (CBase::mFx >= 0){
-					mRect.Render(TextureChara2, 11, 115, 252, 54);
+					mRect.Render(TextureBuki, 11, 115, 252, 54);
 					}
 					else{
-					mRect.Render(TextureChara2, 115, 11, 252, 54);
+						mRect.Render(TextureBuki, 115, 11, 252, 54);
 					}
 		}
 		if (mInvincibleTime != 0 && mAttackCount <= 0 && mdflag == false){
@@ -192,63 +192,63 @@ void CHarpoon::Render() {
 			mAniCnt %= ANICNT;
 			if (mAniCnt < ANICNT / 2){
 				if (CBase::mFx >= 0){
-					mRect.Render(TextureChara2, 7, 117, 1018, 826);
+					mRect.Render(TextureBuki, 7, 117, 1018, 826);
 				}
 				else{
-					mRect.Render(TextureChara2, 117, 7, 1018, 826);
+					mRect.Render(TextureBuki, 117, 7, 1018, 826);
 				}
 			}
 		}
-		if (CPlayer::mCharaSwitch == true && mdflag == false){
-			if (mAttackCount > 0){
-				mAniCnt++;
-				mAniCnt %= ANICNT;
-				if (mAniCnt < ANICNT / 2){
-					if (CBase::mFx >= 0){
-						mRect.Render(TextureChara2Attack, 10, 114, 252, 57);
-					}
-					else{
-						mRect.Render(TextureChara2Attack, 114, 10, 252, 57);
-					}
-				}
-				else{
-					if (CBase::mFx >= 0){
-						mRect.Render(TextureChara2Attack, 139, 248, 252, 57);
-					}
-					else{
-						mRect.Render(TextureChara2Attack, 248, 139, 252, 57);
-					}
-				}
-			}
+		//if (CPlayer::mCharaSwitch == true && mdflag == false){
+		//	if (mAttackCount > 0){
+		//		mAniCnt++;
+		//		mAniCnt %= ANICNT;
+		//		if (mAniCnt < ANICNT / 2){
+		//			if (CBase::mFx >= 0){
+		//				mRect.Render(TextureChara2Attack, 10, 114, 252, 57);
+		//			}
+		//			else{
+		//				mRect.Render(TextureChara2Attack, 114, 10, 252, 57);
+		//			}
+		//		}
+		//		else{
+		//			if (CBase::mFx >= 0){
+		//				mRect.Render(TextureChara2Attack, 139, 248, 252, 57);
+		//			}
+		//			else{
+		//				mRect.Render(TextureChara2Attack, 248, 139, 252, 57);
+		//			}
+		//		}
+		//	}
 
-		}
+		//}
 		if (CPlayer::mMoving == true && mInvincibleTime <= 0 && mdflag == false){
 			if (CBase::mFx >= 0){
 				if (mAniMoving % 40 < 10){
-					mRect.Render(TextureChara2, 138, 241, 507, 311);
+					mRect.Render(TextureBuki, 138, 241, 507, 311);
 				}
 				else if (mAniMoving % 40 < 20){
-					mRect.Render(TextureChara2, 10, 113, 507, 311);
+					mRect.Render(TextureBuki, 10, 113, 507, 311);
 				}
 				else if (mAniMoving % 40 < 30){
-					mRect.Render(TextureChara2, 138, 241, 507, 311);
+					mRect.Render(TextureBuki, 138, 241, 507, 311);
 				}
 				else if (mAniMoving % 40 < 40){
-					mRect.Render(TextureChara2, 266, 370, 510, 314);
+					mRect.Render(TextureBuki, 266, 370, 510, 314);
 				}
 			}
 			else{
 				if (mAniMoving % 40 < 10){
-					mRect.Render(TextureChara2, 241, 138, 507, 311);
+					mRect.Render(TextureBuki, 241, 138, 507, 311);
 				}
 				else if (mAniMoving % 40 < 20){
-					mRect.Render(TextureChara2, 113, 10, 507, 311);
+					mRect.Render(TextureBuki, 113, 10, 507, 311);
 				}
 				else if (mAniMoving % 40 < 30){
-					mRect.Render(TextureChara2, 241, 138, 507, 311);
+					mRect.Render(TextureBuki, 241, 138, 507, 311);
 				}
 				else if (mAniMoving % 40 < 40){
-					mRect.Render(TextureChara2, 370, 266, 510, 314);
+					mRect.Render(TextureBuki, 370, 266, 510, 314);
 				}
 			}
 		}

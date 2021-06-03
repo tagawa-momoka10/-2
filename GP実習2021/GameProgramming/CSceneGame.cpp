@@ -186,7 +186,7 @@ void CSceneGame::Init() {
 	Item11->mRect.mEnabled = true;
 
 
-	//CPlayerHP *PlayerHP = new CPlayerHP();
+	CPlayerHP *PlayerHP = new CPlayerHP();
 
 	CIcon2*Icon2 = new CIcon2();
 	CIcon1*Icon1 = new CIcon1();

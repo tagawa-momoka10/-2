@@ -12,6 +12,7 @@ private:
 	DrawTask mDraw;		//描画タスク操作
 	void Update();
 	int mAniCnt;	//アニメーションカウント
+	int mAniMoving;	//歩行アニメーション用の変数
 
 public:
 	CPlayerHP();

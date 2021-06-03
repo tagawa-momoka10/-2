@@ -8,10 +8,16 @@
 extern CTexture TexturePlayerHP;//主人公HP
 extern CTexture TexturePlayerHPb;//HPバック
 
+#define INITIALIZE 0;	//初期化
+CPlayerHP*CPlayerHP::spInstance = 0;
+
 CPlayerHP::CPlayerHP()
 :m_Max(10), m_Min(0)
-, mPositionX1(0), mPositionX2(0),
-  mPositionY1(0), mPositionY2(0)
+, mPositionX1(0), mPositionX2(0)
+,mPositionY1(0), mPositionY2(0)
+, mAniCnt(0)
+, mAniMoving(0)
+
 {
 	//描画タスクに登録
 	mDraw.RegistDraw(this, (DrawFunc)&CPlayerHP::Render, DrawPriority::Transparent, "CPlayerHP");
@@ -32,45 +38,36 @@ CPlayerHP::CPlayerHP()
 }
 
 void CPlayerHP::Update(){
-	//mPositionY1 = m_Rect1.y;
-	//mPositionX1 = m_Rect1.x;
-	//m_Rect1.x = CPlayer::mPlayerPosition ;
-	//m_Rect1.y = CPlayer::mPlayerPosition ;
-
-	//mPositionY2 = m_Rect2.y;
-	//mPositionX2 = m_Rect2.x;
-	//m_Rect2.x = CPlayer::mPlayerPosition ;
-	//m_Rect2.y = CPlayer::mPlayerPosition ;
 
 	CPlayer::mMoving = false;
 	if (CPlayer::mChara1Hp > 0){
-		if (CPlayer::mAttackCount <= 0 ){
+		if (CPlayer::mAttackCount <= 0){
 
 			if (CKey::Push('A')) {
 				CPlayer::mMoving = true;
 				if (CPlayer::mCharaSwitch == true){
-					CPlayer::spInstance->mRect.x = mRect.x + CPlayer::mPlayerPosition;
+					CPlayer::spInstance->mRect.x = m_Rect1.x + CPlayer::mPlayerPosition;
 					CPlayer::mMoving = true;
 				}
 			}
 			if (CKey::Push('D')) {
 				CPlayer::mMoving = true;
 				if (CPlayer::mCharaSwitch == true){
-					CPlayer::spInstance->mRect.x = mRect.x + CPlayer::mPlayerPosition;
+					CPlayer::spInstance->mRect.x = m_Rect1.x + CPlayer::mPlayerPosition;
 					CPlayer::mMoving = true;
 				}
 			}
 			if (CKey::Push('W')){
 				CPlayer::mMoving = true;
 				if (CPlayer::mCharaSwitch == true){
-					CPlayer::spInstance->mRect.y = mRect.y + CPlayer::mPlayerPosition;
+					CPlayer::spInstance->mRect.y = m_Rect1.y + CPlayer::mPlayerPosition;
 					CPlayer::mMoving = true;
 				}
 			}
 			if (CKey::Push('S')){
 				CPlayer::mMoving = true;
 				if (CPlayer::mCharaSwitch == true){
-					CPlayer::spInstance->mRect.y = mRect.y + CPlayer::mPlayerPosition;
+					CPlayer::spInstance->mRect.y = m_Rect1.y + CPlayer::mPlayerPosition;
 					CPlayer::mMoving = true;
 				}
 			}
@@ -83,12 +80,17 @@ void CPlayerHP::Update(){
 		}
 
 		if (CKey::Once('J') /*&& mJflag == false*/){
-			CPlayer::spInstance->mRect.y = mRect.y + CPlayer::mPlayerPosition;
-			CPlayer::spInstance->mRect.x = mRect.x + CPlayer::mPlayerPosition;
+			CPlayer::spInstance->mRect.y = m_Rect1.y + CPlayer::mPlayerPosition;
+			CPlayer::spInstance->mRect.x = m_Rect1.x + CPlayer::mPlayerPosition;
 			CPlayer::mMoving = true;
 		}
 
+	}
+
+
 }
+
+
 
 void CPlayerHP::Render() {
 	m_Rect1.Render(TexturePlayerHP, 0, 200, 50, 0);
@@ -96,6 +98,10 @@ void CPlayerHP::Render() {
 	m_Rect2.Render(TexturePlayerHP, 0, 200, 50, 0);
 	
 }
+
+
+
+
 
 // 最大値、最小値、現在値のゲッター
 float CPlayerHP::getMax(){ return m_Max; }
