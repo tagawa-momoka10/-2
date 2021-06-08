@@ -27,6 +27,8 @@ public:
 	CEnemy();
 	int mHp;					//体力
 	static CEnemy*spInstance;	//敵の座標を取得
+	static int mEnemyPosition;		//プレイヤー位置
+
 };
 
 #endif

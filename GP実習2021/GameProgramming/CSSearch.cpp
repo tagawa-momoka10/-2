@@ -9,6 +9,9 @@
 #include "CEnemy.h"
 
 #define ANIATTACK 20		//攻撃アニメーション用
+#define ANICNT 40		//アニメーション
+#define ATTACKRANGE 20	//攻撃射程
+#define POSITION 100		//プレイヤー位置
 
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture TextureEnemy1;
@@ -19,8 +22,10 @@ CSSearch::CSSearch()
 , mAniMoving(0)
 {
 	m_Draw.RegistDraw(this, (DrawFunc)&CSSearch::Render, DrawPriority::Transparent, "CSSearch");
-	mRect.w = 300;
-	mRect.h = 100;
+	mRect1.x = 500;
+	mRect1.y = 120;
+	mRect1.w = 250;
+	mRect1.h = 60;
 
 	mTag = EENEMMY_SS;
 	spInstance = this;
@@ -36,24 +41,26 @@ void CSSearch::Update() {
 		mMoving = true;
 		mAniMoving++;
 		//本体に追尾して移動する
-		if (mRect.x < CEnemy::spInstance->mRect.x){
-		}
-		else if (CEnemy::spInstance->mRect.x < mRect.x){
-		}
+		//if (mRect.x < CEnemy::spInstance->mRect.x){
+		//}
+		//else if (CEnemy::spInstance->mRect.x < mRect.x){
+		//}
 
-		if (mRect.y < CEnemy::spInstance->mRect.y){
-			if (mRect.y > -140){
-			}
-		}
-		else if (CEnemy::spInstance->mRect.y < mRect.y){
-		}
+		//if (mRect.y < CEnemy::spInstance->mRect.y){
+		//	if (mRect.y > -140){
+		//	}
+		//}
+		//else if (CEnemy::spInstance->mRect.y < mRect.y){
+		//}
+
+		CEnemy::spInstance->mRect1.x = mRect1.x + CEnemy::mEnemyPosition;
 
 	}
 
 
-	if (mRect.y>CEnemy::spInstance->mRect.y){
-		DrawTaskManager::GetInstance()->ChangePriority(&m_Draw);
-	}
+	//if (mRect.y>CEnemy::spInstance->mRect.y){
+	//	DrawTaskManager::GetInstance()->ChangePriority(&m_Draw);
+	//}
 
 
 }

@@ -121,24 +121,7 @@ void CEnemy2::Update() {
 	if (mAttack == false){
 		mMoving = true;
 		mAniMoving++;
-		//ƒvƒŒƒCƒ„[‚É’Ç”ö‚µ‚ÄˆÚ“®‚·‚é
-		/*	if (mRect.x < CPlayer::spInstance->mRect.x){
-				mRect.x += SPEED;
-				}
-				else if (CPlayer::spInstance->mRect.x < mRect.x){
-				mRect.x -= SPEED;
-				}
 
-				if (mRect.y < CPlayer::spInstance->mRect.y){
-				mRect.y += SPEED;
-				if (mRect.y > -140){
-				mRect.y -= SPEED;
-				}
-				}
-				else if (CPlayer::spInstance->mRect.y < mRect.y){
-				mRect.y -= SPEED;
-				}
-				*/
 	}
 
 }

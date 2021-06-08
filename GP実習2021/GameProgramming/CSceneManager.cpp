@@ -1,10 +1,8 @@
 #include "CSceneManager.h"
 #include "CSceneGame.h"
 #include "CSceneTitle.h"
-#include "CSceneGameOver.h"
 #include "CSceneResult.h"
 #include "CSceneGame2.h"
-#include "CSceneGameBoss.h"
 
 //コンストラクタ
 CSceneManager::CSceneManager()
@@ -48,18 +46,8 @@ void CSceneManager::Update() {
 			mpScene->Init();
 			break;
 
-		case CScene::EGAMEBOSS:
-			mpScene = new CSceneGameBoss();
-			mpScene->Init();
-			break;
-
 		case CScene::ETITLE:
 			mpScene = new CSceneTitle();
-			mpScene->Init();
-			break;
-
-		case CSceneGameOver::EGAMEOVER:
-			mpScene = new CSceneGameOver();
 			mpScene->Init();
 			break;
 

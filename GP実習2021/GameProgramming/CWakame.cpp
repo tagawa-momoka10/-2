@@ -38,10 +38,10 @@ void CWakame::Collision(CBase *i, CBase *y){
 	}
 	if (y->mTag == EPLAYER){
 		if (CKey::Push('A')){
-			mRect.x -= 2;
+			mRect.x += 2;
 		}
 		if (CKey::Push('D')){
-			mRect.x += 2;
+			mRect.x -= 2;
 		}
 		if (CKey::Push('S')){
 			mRect.y -= 2;

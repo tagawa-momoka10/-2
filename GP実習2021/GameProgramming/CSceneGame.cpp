@@ -6,7 +6,6 @@
 #include "CPlayer.h"
 #include "CEnemy.h"
 #include "CEnemy2.h"
-#include "CEnemyBoss.h"
 #include "CText.h"
 #include "TaskManager.h"
 #include "DrawTaskManager.h"
@@ -20,7 +19,7 @@
 #include "CSmg.h"
 #include "CHarpoon.h"
 #include "CSSearch.h"
-//#include "CWakame.h"
+#include "CWakame.h"
 #include "CBubble.h"
 
 //#include "CSound.h"
@@ -52,12 +51,13 @@ void CSceneGame::Init() {
 	Bgm.Load();
 	Bgm.Repeat();*/
 
-	CSSearch*SSearch = new CSSearch();
 
 	CEnemy *Enemy = new CEnemy();
 	Enemy->mRect.x = 300;
 	Enemy->mRect.y = -200;
 	Enemy->mRect.mEnabled = true;
+
+	CSSearch*SSearch = new CSSearch();
 
 	//CEnemy *Enemy2 = new CEnemy();
 	//Enemy2->mRect.x = 600;
@@ -188,11 +188,14 @@ void CSceneGame::Init() {
 
 	CPlayerHP *PlayerHP = new CPlayerHP();
 
+
 	CIcon2*Icon2 = new CIcon2();
 	CIcon1*Icon1 = new CIcon1();
 
-	//CWakame*Wakame = new CWakame();
 	CBubble*Bubble = new CBubble();
+
+	//CWakame*Wakame = new CWakame();
+
 	Bubble->mRect.x = -400;
 	Bubble->mRect.y = -200;
 }
@@ -215,165 +218,11 @@ void CSceneGame::Update() {
 	//整数を文字列に変換する
 	char buf[10];//9文字までOK
 
-	//if (CPlayer::spInstance->mRect.x >= 800){
-	//	//フェードアウト処理
-	//	CRectangle rect;
-	//	rect.x = 0;
-	//	rect.y = 0;
-	//	rect.w = 1920 / 2;
-	//	rect.h = 1080 / 2;
-	//	//アルファブレンドを有効にする
-	//	glEnable(GL_BLEND);
-	//	//ブレンド方法を指定
-	//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	//	glColor4f(0.0f, 0.0f, 0.0f, mFadeout);
-	//	rect.Render();
-
-	//	//アルファブレンドを無効
-	//	glDisable(GL_BLEND);
-
-	//	mFadeout += 0.01;
-
-	//	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	//	if (mFadeout >= 1.0){
-	//		mScene = EGAME2;
-	//		mCharaHp1store = CPlayer::mChara1Hp;
-	//		mScorestore = CScore::mScore;
-	//		TaskManager::ReleaseInstance();
-	//	}
-	//}
-	//if (CPlayer::mChara1Hp <= 0 ){
-	//	//フェードアウト処理
-	//	CRectangle rect;
-	//	rect.x = 0;
-	//	rect.y = 0;
-	//	rect.w = 1920 / 2;
-	//	rect.h = 1080 / 2;
-	//	//アルファブレンドを有効にする
-	//	glEnable(GL_BLEND);
-	//	//ブレンド方法を指定
-	//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	//	glColor4f(0.0f, 0.0f, 0.0f, mFadeout);
-	//	rect.Render();
-
-	//	//アルファブレンドを無効
-	//	glDisable(GL_BLEND);
-
-	//	mFadeout += 0.01;
-
-	//	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-
-
-	//	if (mFadeout >= 1.0){
-	//		CScore::mScore = INITIALIZE;
-	//		mScene = EGAMEOVER;
-	//		mFadeout = INITIALIZE;
-	//		Time = TIME;
-	//		TaskManager::ReleaseInstance();
-	//	}
-	//}
-	//if (Time <= 0){
-	//	//フェードアウト処理
-	//	CRectangle rect;
-	//	rect.x = 0;
-	//	rect.y = 0;
-	//	rect.w = 1920 / 2;
-	//	rect.h = 1080 / 2;
-	//	//アルファブレンドを有効にする
-	//	glEnable(GL_BLEND);
-	//	//ブレンド方法を指定
-	//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	//	glColor4f(0.0f, 0.0f, 0.0f, mFadeout);
-	//	rect.Render();
-
-	//	//アルファブレンドを無効
-	//	glDisable(GL_BLEND);
-
-	//	mFadeout += 0.01;
-
-	//	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-
-
-	//	if (mFadeout >= 1.0){
-	//		CScore::mScore = INITIALIZE;
-	//		mScene = EGAMEOVER;
-	//		mFadeout = INITIALIZE;
-	//		Time = TIME;
-	//		TaskManager::ReleaseInstance();
-	//	}
-	//}
-
-	//if (mFadein > 0.0){
-	//	//フェードアウト処理
-	//	CRectangle rect;
-	//	rect.x = 0;
-	//	rect.y = 0;
-	//	rect.w = 1920 / 2;
-	//	rect.h = 1080 / 2;
-	//	//アルファブレンドを有効にする
-	//	glEnable(GL_BLEND);
-	//	//ブレンド方法を指定
-	//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	//	glColor4f(0.0f, 0.0f, 0.0f, mFadein);
-	//	rect.Render();
-
-	//	//アルファブレンドを無効
-	//	glDisable(GL_BLEND);
-
-	//	mFadein -= 0.01;
-	//	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	//}
-	//return;
-	///*
-	//配列の要素分繰り返す
-	//配列名.size()
-	//配列の要素数を取得する
-	//*/
-	//for (int i = 0; i < VectorRect.size(); i++) {
-	//	/*
-	//	配列の参照
-	//	配列名[添え字]
-	//	通常の配列同様に添え字で要素にアクセスできる
-	//	*/
-	//	//更新処理
-	//	VectorRect[i]->Update();
-	//}
-	//for (int i = 0; i < VectorRect.size() - 1; i++) {
-	//	//衝突処理
-	//	for (int j = i + 1; j < VectorRect.size(); j++) {
-	//		VectorRect[i]->Collision(VectorRect[i], VectorRect[j]);
-	//		VectorRect[j]->Collision(VectorRect[j], VectorRect[i]);
-	//	}
-	//}
-
-	////リストから削除する
-	////イテレータの生成
-	//std::vector<CRectangle*>::iterator itr;
-	////イテレータを先頭
-	//itr = VectorRect.begin();
-	////最後まで繰り返し
-	//while (itr != VectorRect.end()) {
-	//	if ((*itr)->mEnabled) {
-	//		//次へ
-	//		itr++;
-	//	}
-	//	else {
-	//		//falseのインスタンスを削除
-	//		delete *itr;
-	//		//リストからも削除
-	//		itr = VectorRect.erase(itr);
-	//	}
-	//}
-
 	//画面スクロール処理(H 700,W 1200,横にスクロール)
 	//描画範囲変数の作成　範囲下:-300　範囲上:300　固定
 	double mLeft = -600 , mRight = 600, mBottom = -350, mTop = 350;
 	//画面範囲左の設定
-	mLeft = CPlayer::spInstance->mRect.x - 600.0f;
+	mLeft = CPlayer::spInstance->mRect.x -50.0f;
 
 	//画面範囲右の設定
 	mRight = mLeft + 1200.0f;

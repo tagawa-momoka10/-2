@@ -88,7 +88,6 @@
     <ClCompile Include="CEnemy.cpp" />
     <ClCompile Include="CEnemy2.cpp" />
     <ClCompile Include="CEnemyAttack.cpp" />
-    <ClCompile Include="CEnemyBoss.cpp" />
     <ClCompile Include="CHarpoon.cpp" />
     <ClCompile Include="CPlayerHP.cpp" />
     <ClCompile Include="CIcon1.cpp" />
@@ -105,8 +104,6 @@
     <ClCompile Include="CRectangle.cpp" />
     <ClCompile Include="CSceneGame.cpp" />
     <ClCompile Include="CSceneGame2.cpp" />
-    <ClCompile Include="CSceneGameBoss.cpp" />
-    <ClCompile Include="CSceneGameOver.cpp" />
     <ClCompile Include="CSceneManager.cpp" />
     <ClCompile Include="CSceneResult.cpp" />
     <ClCompile Include="CSceneTitle.cpp" />
@@ -130,7 +127,6 @@
     <ClInclude Include="CEnemy.h" />
     <ClInclude Include="CEnemy2.h" />
     <ClInclude Include="CEnemyAttack.h" />
-    <ClInclude Include="CEnemyBoss.h" />
     <ClInclude Include="CHarpoon.h" />
     <ClInclude Include="CPlayerHP.h" />
     <ClInclude Include="CIcon1.h" />
@@ -148,8 +144,6 @@
     <ClInclude Include="CScene.h" />
     <ClInclude Include="CSceneGame.h" />
     <ClInclude Include="CSceneGame2.h" />
-    <ClInclude Include="CSceneGameBoss.h" />
-    <ClInclude Include="CSceneGameOver.h" />
     <ClInclude Include="CSceneManager.h" />
     <ClInclude Include="CSceneResult.h" />
     <ClInclude Include="CSceneTitle.h" />

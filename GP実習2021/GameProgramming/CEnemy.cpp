@@ -17,6 +17,7 @@
 
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture TextureEnemy;
+int CEnemy::mEnemyPosition;
 
 CEnemy::CEnemy()
 :mAttackLag(90)
@@ -31,10 +32,10 @@ CEnemy::CEnemy()
 , mDeathCount(0)
 {
 	m_Draw.RegistDraw(this, (DrawFunc)&CEnemy::Render, DrawPriority::Transparent, "CEnemy");
-	mRect.x = 100;
-	mRect.y = 50;
-	mRect1.w = 50;
-	mRect1.h = 25;
+	mRect.x = 500;
+	mRect.y = 120;
+	mRect.w = 250;
+	mRect.h = 60;
 
 	mTag = EENEMY_S;
 	spInstance = this;
@@ -117,7 +118,7 @@ void CEnemy::Update() {
 	}
 
 	if (mAttack == false){
-		mMoving = true;
+		CEnemy::mMoving = false;
 		mAniMoving++;
 		////プレイヤーに追尾して移動する
 		//if (mRect.x < CPlayer::spInstance->mRect.x){
@@ -141,7 +142,7 @@ void CEnemy::Update() {
 	}
 
 
-	if (mRect.y>CPlayer::spInstance->mRect.y){
+	if (mRect.y>CEnemy::spInstance->mRect.y){
 		DrawTaskManager::GetInstance()->ChangePriority(&m_Draw);
 	}
 
@@ -203,6 +204,13 @@ void CEnemy::Render() {
 						}
 						else if (mAniAttack > -10){
 							mRect.Render(TextureEnemy, 0, 600, 200, 0);
+						}
+						//攻撃時のアニメーション
+						if (mAniAttack > 60){
+							mRect.Render(TextureEnemy, 127, 3, 766, 568);
+						}
+						else if (mAniAttack > 0){
+							mRect.Render(TextureEnemy, 255, 131, 766, 568);
 						}
 					}
 					//移動しているとき
