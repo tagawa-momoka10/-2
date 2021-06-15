@@ -6,18 +6,21 @@
 #include "CSceneGame.h"
 #include "DrawTaskManager.h"
 #include "CScore.h"
+#include "CScene.h"
+#include "CSSearch.h"
 
 #define SPEED 1				//移動速度
-#define COMBO 3*60			//コンボ持続時間2秒
 #define INVINCIBLETIME 60	//無敵時間
 #define ATTACKSIZE 55		//攻撃判定の大きさ
 #define HP 2				//体力
 #define ANIATTACK 20		//攻撃アニメーション用
 #define SCORE 100			//ざこ敵撃破時のスコア
+#define POSITION 100		//位置
 
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture TextureEnemy;
 int CEnemy::mEnemyPosition;
+CEnemy*CEnemy::spInstance = 0;
 
 CEnemy::CEnemy()
 :mAttackLag(90)
@@ -30,12 +33,13 @@ CEnemy::CEnemy()
 , mAniMoving(0)
 , mDeath(false)
 , mDeathCount(0)
+
 {
 	m_Draw.RegistDraw(this, (DrawFunc)&CEnemy::Render, DrawPriority::Transparent, "CEnemy");
-	mRect.x = 500;
-	mRect.y = 120;
-	mRect.w = 250;
-	mRect.h = 60;
+	mRect.x = 300;
+	mRect.y = 200;
+	mRect.w = 150;
+	mRect.h = 100;
 
 	mTag = EENEMY_S;
 	spInstance = this;
@@ -88,6 +92,32 @@ void CEnemy::Update() {
 			mAniAttack = ANIATTACK;
 		}
 	}
+
+	//if (mMoving = true){
+	//	mRect.x -= 4;
+	//	CBase::mFx = -1;
+	//	mMoving = true;
+		//本体に追尾して移動する
+		if (mMoving = true){
+			mRect.x < CSSearch::spInstance->mRect.x + mEnemyPosition;
+		}
+
+		else if (mMoving = true){
+			CSSearch::spInstance->mRect.x < mRect.x + mEnemyPosition;
+		}
+
+		if (mMoving = true){
+			mRect.y < CSSearch::spInstance->mRect.y + mEnemyPosition;
+		}
+
+		else if (mMoving = true){
+			CSSearch::spInstance->mRect.y < mRect.y + mEnemyPosition;
+		}
+	//}
+
+	//CEnemy::spInstance->mRect1.x = mRect1.x + CEnemy::mEnemyPosition;
+
+
 
 	//攻撃
 	if (mAttack == true && mAttackLag == 0){
@@ -162,25 +192,25 @@ void CEnemy::Render() {
 				//移動していないとき
 				if (mMoving == false){
 					if (mAniAttack == -10){
-						mRect.Render(TextureEnemy, 0, 600, 200, 0);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 					else if (mAniAttack > 10){
-						mRect.Render(TextureEnemy, 137, 254, 764, 520);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 					else if (mAniAttack > 0){
-						mRect.Render(TextureEnemy, 12, 120, 764, 520);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 					else if (mAniAttack > -10){
-						mRect.Render(TextureEnemy, 137, 254, 764, 520);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 				}
 				//移動しているとき
 				else{
 					if (mAniMoving % 60 < 30){
-						mRect.Render(TextureEnemy, 0, 600, 200, 0);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 					else if (mAniMoving % 60 < 60){
-						mRect.Render(TextureEnemy, 0, 600, 200, 0);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 				}
 			}
@@ -194,32 +224,32 @@ void CEnemy::Render() {
 					//移動していないとき
 					if (mMoving == false){
 						if (mAniAttack == -10){
-							mRect.Render(TextureEnemy, 0, 600, 200, 0);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 						else if (mAniAttack > 10){
-							mRect.Render(TextureEnemy, 0, 600, 200, 0);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 						else if (mAniAttack > 0){
-							mRect.Render(TextureEnemy, 0, 600, 200, 0);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 						else if (mAniAttack > -10){
-							mRect.Render(TextureEnemy, 0, 600, 200, 0);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 						//攻撃時のアニメーション
 						if (mAniAttack > 60){
-							mRect.Render(TextureEnemy, 127, 3, 766, 568);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 						else if (mAniAttack > 0){
-							mRect.Render(TextureEnemy, 255, 131, 766, 568);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 					}
 					//移動しているとき
 					else{
 						if (mAniMoving % 60 < 30){
-							mRect.Render(TextureEnemy, 10, 117, 508, 264);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 						else if (mAniMoving % 60 < 60){
-							mRect.Render(TextureEnemy, 266, 373, 508, 264);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 					}
 				}
@@ -228,10 +258,10 @@ void CEnemy::Render() {
 		//死亡フラグが立った時
 		else{
 			if (mDeathCount > 30){
-				mRect.Render(TextureEnemy, 12, 120, 1020, 776);
+				mRect.Render(TextureEnemy, 0, 300, 200, 0);
 			}
 			else{
-				mRect.Render(TextureEnemy, 169, 413, 976, 866);
+				mRect.Render(TextureEnemy, 0, 300, 200, 0);
 			}
 		}
 	}
@@ -245,27 +275,27 @@ void CEnemy::Render() {
 				//移動していないとき
 				if (mMoving == false){
 					if (mAniAttack == -10){
-						mRect.Render(TextureEnemy, 117, 10, 252, 8);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 					//攻撃アニメーション
 					else if (mAniAttack > 10){
-						mRect.Render(TextureEnemy, 254, 137, 764, 520);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 					else if (mAniAttack > 0){
-						mRect.Render(TextureEnemy, 120, 13, 764, 520);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 					else if (mAniAttack >= -10){
-						mRect.Render(TextureEnemy, 254, 137, 764, 520);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 				}
 				//移動しているとき
 				else{
 					//移動アニメーション
 					if (mAniMoving % 60 < 30){
-						mRect.Render(TextureEnemy, 117, 10, 508, 264);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 					else if (mAniMoving % 60 < 60){
-						mRect.Render(TextureEnemy, 373, 266, 508, 264);
+						mRect.Render(TextureEnemy, 0, 300, 200, 0);
 					}
 				}
 			}
@@ -280,27 +310,27 @@ void CEnemy::Render() {
 					//移動していないとき
 					if (mMoving == false){
 						if (mAniAttack == -10){
-							mRect.Render(TextureEnemy, 117, 10, 252, 8);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 						//攻撃アニメーション
 						else if (mAniAttack > 10){
-							mRect.Render(TextureEnemy, 254, 137, 764, 520);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 						else if (mAniAttack > 0){
-							mRect.Render(TextureEnemy, 120, 13, 764, 520);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 						else if (mAniAttack >= -10){
-							mRect.Render(TextureEnemy, 254, 137, 764, 520);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 					}
 					//移動しているとき
 					else{
 						//移動アニメーション
 						if (mAniMoving % 60 < 30){
-							mRect.Render(TextureEnemy, 117, 10, 508, 264);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 						else if (mAniMoving % 60 < 60){
-							mRect.Render(TextureEnemy, 373, 266, 508, 264);
+							mRect.Render(TextureEnemy, 0, 300, 200, 0);
 						}
 					}
 				}
@@ -310,10 +340,10 @@ void CEnemy::Render() {
 		//死亡フラグが立った時
 		else{
 			if (mDeathCount > 30){
-				mRect.Render(TextureEnemy, 120, 12, 1020, 776);
+				mRect.Render(TextureEnemy, 0, 300, 200, 0);
 			}
 			else{
-				mRect.Render(TextureEnemy, 413, 169, 976, 866);
+				mRect.Render(TextureEnemy, 0, 300, 200, 0);
 			}
 		}
 	}
@@ -371,4 +401,4 @@ void CEnemy::Collision(CBase *i, CBase *y) {
 
 }
 
-CEnemy*CEnemy::spInstance = 0;
+//CEnemy*CEnemy::spInstance = 0;

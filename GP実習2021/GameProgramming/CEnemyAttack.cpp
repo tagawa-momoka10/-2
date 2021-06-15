@@ -11,9 +11,7 @@
 
 extern CTexture TextureEnemy1;
 extern CTexture TextureEnemy2;
-//extern CTexture TextureBoss1;
-//extern CTexture TextureBoss2;
-//extern CTexture TextureBoss3;
+
 
 CEnemyAttack::CEnemyAttack()
 : mLandingPoint_EA(0)
@@ -23,23 +21,6 @@ CEnemyAttack::CEnemyAttack()
 }
 
 void CEnemyAttack::Update(){
-
-	//////////////////////////////////////////////////////////////////////////
-
-	//ボスの近距離攻撃
-	if (mTag == EBOSSATTACK_S){
-		mAttackTime--;
-		//攻撃判定の出現終了
-		if (mAttackTime <= 0){
-			Kill();
-		}
-	}
-
-	//////////////////////////////////////////////////////////////////////////
-
-
-	//////////////////////////////////////////////////////////////////////////
-
 
 
 	//////////////////////////////////////////////////////////////////////////

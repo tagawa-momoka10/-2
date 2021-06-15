@@ -222,7 +222,7 @@ void CSceneGame::Update() {
 	//描画範囲変数の作成　範囲下:-300　範囲上:300　固定
 	double mLeft = -600 , mRight = 600, mBottom = -350, mTop = 350;
 	//画面範囲左の設定
-	mLeft = CPlayer::spInstance->mRect.x -50.0f;
+	mLeft = CPlayer::spInstance->mRect.x -550.0f;
 
 	//画面範囲右の設定
 	mRight = mLeft + 1200.0f;

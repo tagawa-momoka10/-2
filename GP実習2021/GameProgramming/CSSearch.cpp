@@ -15,6 +15,8 @@
 
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture TextureEnemy1;
+CSSearch*CSSearch::spInstance = 0;
+
 
 CSSearch::CSSearch()
 : mMoving(true)
@@ -22,13 +24,14 @@ CSSearch::CSSearch()
 , mAniMoving(0)
 {
 	m_Draw.RegistDraw(this, (DrawFunc)&CSSearch::Render, DrawPriority::Transparent, "CSSearch");
-	mRect1.x = 500;
-	mRect1.y = 120;
-	mRect1.w = 250;
-	mRect1.h = 60;
+	mRect1.x = 300;
+	mRect1.y = 200;
+	mRect1.w = 150;
+	mRect1.h = 100;
 
 	mTag = EENEMMY_SS;
 	spInstance = this;
+	//mCSPosition = POSITION;
 }
 
 void CSSearch::Update() {
@@ -37,61 +40,67 @@ void CSSearch::Update() {
 		mAniAttack--;
 	}
 
-	if (mAttack == false){
+	if (m_Attack == false){
 		mMoving = true;
 		mAniMoving++;
-		//本体に追尾して移動する
-		//if (mRect.x < CEnemy::spInstance->mRect.x){
-		//}
-		//else if (CEnemy::spInstance->mRect.x < mRect.x){
-		//}
+	}
 
-		//if (mRect.y < CEnemy::spInstance->mRect.y){
-		//	if (mRect.y > -140){
-		//	}
-		//}
-		//else if (CEnemy::spInstance->mRect.y < mRect.y){
-		//}
 
-		CEnemy::spInstance->mRect1.x = mRect1.x + CEnemy::mEnemyPosition;
+
+	if (mMoving = true){
+		CEnemy::spInstance->mRect1.x = mRect.x + CEnemy::mEnemyPosition;
+		mMoving = true;
+
+	}
+
+	if (mMoving = true){
+		CEnemy::spInstance->mRect1.x = mRect.x + CEnemy::mEnemyPosition;
+		mMoving = true;
+
+	}
+
+	if (mMoving = true){
+		CEnemy::spInstance->mRect1.y = mRect.y + CEnemy::mEnemyPosition;
+		mMoving = true;
 
 	}
 
 
-	//if (mRect.y>CEnemy::spInstance->mRect.y){
-	//	DrawTaskManager::GetInstance()->ChangePriority(&m_Draw);
-	//}
+	if (mMoving = true){
+		CEnemy::spInstance->mRect1.y = mRect.y + CEnemy::mEnemyPosition;
+		mMoving = true;
 
-
+	}
 }
+
 
 void CSSearch::Render() {
 	//左向き
-	if (mRect.x > CEnemy::spInstance->mRect.x){
+	if (mRect1.x > CEnemy::spInstance->mRect1.x){
 
 
 		//移動していないとき
 		if (mMoving == false){
 			if (mAniAttack == -10){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			else if (mAniAttack > 10){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			else if (mAniAttack > 0){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			else if (mAniAttack > -10){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 		}
 		//移動しているとき
 		else{
 			if (mAniMoving % 60 < 30){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			else if (mAniMoving % 60 < 60){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 		}
 
@@ -100,25 +109,25 @@ void CSSearch::Render() {
 		//移動していないとき
 		if (mMoving == false){
 			if (mAniAttack == -10){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			else if (mAniAttack > 10){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			else if (mAniAttack > 0){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			else if (mAniAttack > -10){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 		}
 		//移動しているとき
 		else{
 			if (mAniMoving % 60 < 30){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			else if (mAniMoving % 60 < 60){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 		}
 	}
@@ -131,27 +140,27 @@ void CSSearch::Render() {
 		//移動していないとき
 		if (mMoving == false){
 			if (mAniAttack == -10){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			//攻撃アニメーション
 			else if (mAniAttack > 10){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			else if (mAniAttack > 0){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			else if (mAniAttack >= -10){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 		}
 		//移動しているとき
 		else{
 			//移動アニメーション
 			if (mAniMoving % 60 < 30){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 			else if (mAniMoving % 60 < 60){
-				mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+				mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 			}
 		}
 	}
@@ -161,27 +170,27 @@ void CSSearch::Render() {
 	//移動していないとき
 	if (mMoving == false){
 		if (mAniAttack == -10){
-			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+			mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 		}
 		//攻撃アニメーション
 		else if (mAniAttack > 10){
-			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+			mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 		}
 		else if (mAniAttack > 0){
-			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+			mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 		}
 		else if (mAniAttack >= -10){
-			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+			mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 		}
 	}
 	//移動しているとき
 	else{
 		//移動アニメーション
 		if (mAniMoving % 60 < 30){
-			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+			mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 		}
 		else if (mAniMoving % 60 < 60){
-			mRect.Render(TextureEnemy1, 0, 600, 200, 0);
+			mRect1.Render(TextureEnemy1, 0, 300, 200, 0);
 		}
 
 	}
@@ -193,15 +202,13 @@ void CSSearch::Collision(CBase *i, CBase *y) {
 	//プレイヤー1と当たったとき
 	if (y->mTag == EPLAYER){
 		if (y->mEnabled){
-			if (mRect.Collision(y->mRect)){
-				if (mAttack == true && mAttackLag == 0){
+			if (mRect1.Collision(y->mRect1)){
+				if (m_Attack == true && mAttackLag == 0){
 					mEnabled = false;
-
-
+					//CEnemy::mAttack = true;
 				}
 			}
 		}
 	}
 
 }
-CSSearch*CSSearch::spInstance = 0;

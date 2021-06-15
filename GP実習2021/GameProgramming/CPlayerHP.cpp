@@ -12,7 +12,7 @@ extern CTexture TexturePlayerHPb;//HPƒoƒbƒN
 CPlayerHP*CPlayerHP::spInstance = 0;
 
 CPlayerHP::CPlayerHP()
-:m_Max(10), m_Min(0)
+:m_Max(100), m_Min(0)
 , mPositionX1(0), mPositionX2(0)
 ,mPositionY1(0), mPositionY2(0)
 , mAniCnt(0)
@@ -38,55 +38,9 @@ CPlayerHP::CPlayerHP()
 }
 
 void CPlayerHP::Update(){
-
-	CPlayer::mMoving = false;
-	if (CPlayer::mChara1Hp > 0){
-		if (CPlayer::mAttackCount <= 0){
-
-			if (CKey::Push('A')) {
-				CPlayer::mMoving = true;
-				if (CPlayer::mCharaSwitch == true){
-					CPlayer::spInstance->mRect.x = m_Rect1.x + CPlayer::mPlayerPosition;
-					CPlayer::mMoving = true;
-				}
-			}
-			if (CKey::Push('D')) {
-				CPlayer::mMoving = true;
-				if (CPlayer::mCharaSwitch == true){
-					CPlayer::spInstance->mRect.x = m_Rect1.x + CPlayer::mPlayerPosition;
-					CPlayer::mMoving = true;
-				}
-			}
-			if (CKey::Push('W')){
-				CPlayer::mMoving = true;
-				if (CPlayer::mCharaSwitch == true){
-					CPlayer::spInstance->mRect.y = m_Rect1.y + CPlayer::mPlayerPosition;
-					CPlayer::mMoving = true;
-				}
-			}
-			if (CKey::Push('S')){
-				CPlayer::mMoving = true;
-				if (CPlayer::mCharaSwitch == true){
-					CPlayer::spInstance->mRect.y = m_Rect1.y + CPlayer::mPlayerPosition;
-					CPlayer::mMoving = true;
-				}
-			}
-		}
-		if (CPlayer::mMoving == true){
-			mAniMoving++;
-		}
-		if (CPlayer::mMoving == false){
-			CPlayer::mMoving = INITIALIZE;
-		}
-
-		if (CKey::Once('J') /*&& mJflag == false*/){
-			CPlayer::spInstance->mRect.y = m_Rect1.y + CPlayer::mPlayerPosition;
-			CPlayer::spInstance->mRect.x = m_Rect1.x + CPlayer::mPlayerPosition;
-			CPlayer::mMoving = true;
-		}
-
-	}
-
+	//if (m_Rect2.x < 101){
+	//	m_Rect2.x = --;
+	//}
 
 }
 
@@ -98,7 +52,6 @@ void CPlayerHP::Render() {
 	m_Rect2.Render(TexturePlayerHP, 0, 200, 50, 0);
 	
 }
-
 
 
 

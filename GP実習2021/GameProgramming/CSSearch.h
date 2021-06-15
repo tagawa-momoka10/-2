@@ -6,7 +6,7 @@
 class CSSearch : public CBase
 {
 private:
-	bool mAttack;			//攻撃フラグ
+	bool m_Attack;			//攻撃フラグ
 	int mAttackLag;			//攻撃フラグが立った後の攻撃開始までのラグ
 
 	bool mMoving;			//移動状態かどうか返すフラグ
@@ -20,6 +20,8 @@ private:
 public:
 	CSSearch();
 	static CSSearch*spInstance;	//敵の座標を取得
+	//static int mCSPosition;		//プレイヤー位置
+
 };
 
 #endif
