@@ -49,7 +49,7 @@ CPlayer::CPlayer()
 {
 	//•`‰æƒ^ƒXƒN‚É“o˜^
 	mDraw.RegistDraw(this, (DrawFunc)&CPlayer::Render, DrawPriority::Transparent, "Player");
-	mChara1Hp = 10;
+	mChara1Hp = 100;
 	mTag = EPLAYER;
 	spInstance = this;
 	mRect.x = -200;
@@ -192,8 +192,11 @@ void CPlayer::Update() {
 			mAttackFlag = false;
 		}
 
-		if (mChara1Hp > 10){
-			mChara1Hp = 10;
+		if (mChara1Hp > 100){
+			mChara1Hp = 100;
+		}
+		if (mChara1Hp < 101){
+			mChara1Hp--;
 		}
 	}
 	if (mRect.y<CEnemy::spInstance->mRect.y){

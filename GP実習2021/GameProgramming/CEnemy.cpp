@@ -98,21 +98,28 @@ void CEnemy::Update() {
 	//	CBase::mFx = -1;
 	//	mMoving = true;
 		//本体に追尾して移動する
-		if (mMoving = true){
-			mRect.x < CSSearch::spInstance->mRect.x + mEnemyPosition;
-		}
+	//if (mMoving = true){
+	//		mRect.x < CSSearch::spInstance->mRect.x + mEnemyPosition;
+	//		mMoving = true;
+	//	}
 
-		else if (mMoving = true){
-			CSSearch::spInstance->mRect.x < mRect.x + mEnemyPosition;
-		}
+	//else if (mMoving = true){
+	//		CSSearch::spInstance->mRect.x < mRect.x + mEnemyPosition;
+	//		mMoving = true;
 
-		if (mMoving = true){
-			mRect.y < CSSearch::spInstance->mRect.y + mEnemyPosition;
-		}
+	//	}
 
-		else if (mMoving = true){
-			CSSearch::spInstance->mRect.y < mRect.y + mEnemyPosition;
-		}
+	//if (mMoving = true){
+	//		mRect.y < CSSearch::spInstance->mRect.y + mEnemyPosition;
+	//		mMoving = true;
+
+	//	}
+
+	//else if (mMoving = true){
+	//		CSSearch::spInstance->mRect.y < mRect.y + mEnemyPosition;
+	//		mMoving = true;
+
+	//	}
 	//}
 
 	//CEnemy::spInstance->mRect1.x = mRect1.x + CEnemy::mEnemyPosition;
@@ -359,23 +366,28 @@ void CEnemy::Collision(CBase *i, CBase *y) {
 					//プレイヤーと接触すると攻撃フラグが立つ
 					mAttack = true;
 					mMoving = false;
-					//プレイヤーに追尾して移動する
+					
+					//追尾
 					if (mRect.x < CPlayer::spInstance->mRect.x){
-						mRect.x += SPEED+5;
+						mRect.x += SPEED;
 					}
 					else if (CPlayer::spInstance->mRect.x < mRect.x){
-						mRect.x -= SPEED-5;
+						mRect.x -= SPEED;
 					}
 
 					if (mRect.y < CPlayer::spInstance->mRect.y){
 						mRect.y += SPEED;
 						if (mRect.y > -140){
-							mRect.y -= SPEED-5;
+							mRect.y -= SPEED;
 						}
 					}
 					else if (CPlayer::spInstance->mRect.y < mRect.y){
-						mRect.y -= SPEED-5;
+						mRect.y -= SPEED;
 					}
+
+
+
+				
 					return;
 
 				}
@@ -398,7 +410,6 @@ void CEnemy::Collision(CBase *i, CBase *y) {
 			}
 		}
 	}
-
 }
 
 //CEnemy*CEnemy::spInstance = 0;

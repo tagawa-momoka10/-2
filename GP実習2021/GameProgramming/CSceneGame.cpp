@@ -57,7 +57,7 @@ void CSceneGame::Init() {
 	Enemy->mRect.y = -200;
 	Enemy->mRect.mEnabled = true;
 
-	CSSearch*SSearch = new CSSearch();
+	//CSSearch*SSearch = new CSSearch();
 
 	//CEnemy *Enemy2 = new CEnemy();
 	//Enemy2->mRect.x = 600;

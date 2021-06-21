@@ -199,16 +199,17 @@ void CSSearch::Render() {
 
 
 void CSSearch::Collision(CBase *i, CBase *y) {
-	//プレイヤー1と当たったとき
-	if (y->mTag == EPLAYER){
-		if (y->mEnabled){
-			if (mRect1.Collision(y->mRect1)){
-				if (m_Attack == true && mAttackLag == 0){
-					mEnabled = false;
-					//CEnemy::mAttack = true;
-				}
-			}
-		}
-	}
+	////プレイヤー1と当たったとき
+	//if (y->mTag == EPLAYER){
+	//	CEnemy::mAttack = true;
+	//	if (y->mEnabled){
+	//		if (mRect1.Collision(y->mRect1)){
+	//			if (m_Attack == true && mAttackLag == 0){
+	//				mEnabled = false;
+	//				//CEnemy::mAttack = true;
+	//			}
+	//		}
+	//	}
+	//}
 
 }

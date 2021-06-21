@@ -1,5 +1,5 @@
 #include "CBubble.h"
-
+#include "CPlayer.h"
 #include "glut.h"
 #include "SampleProperty.h"
 #include "TaskManager.h"
@@ -37,6 +37,10 @@ void CBubble::Collision(CBase *i, CBase *y){
 	if (y->mTag == EPLAYER){
 		if (mRect.Collision(y->mRect)){
 			Kill();
+		}
+
+		if (CPlayer::mChara1Hp < 100){
+			CPlayer::mChara1Hp += 20;
 		}
 	}
 }
