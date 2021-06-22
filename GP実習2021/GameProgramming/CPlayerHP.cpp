@@ -41,16 +41,11 @@ void CPlayerHP::Update(){
 		mPositionX1 = m_Rect1.x;
 		m_Rect1.y = CPlayer::spInstance->mRect.y;
 		m_Rect1.x = CPlayer::spInstance->mRect.x;
-		CPlayer::spInstance->mRect.y = mPositionY1;
-		CPlayer::spInstance->mRect.x = mPositionX1;
 
 		mPositionY2 = m_Rect2.y;
 		mPositionX2 = m_Rect2.x;
 		m_Rect2.y = CPlayer::spInstance->mRect.y;
 		m_Rect2.x = CPlayer::spInstance->mRect.x;
-		CPlayer::spInstance->mRect.y = mPositionY2;
-
-		CPlayer::spInstance->mRect.x = mPositionX2;
 	}
 }
 

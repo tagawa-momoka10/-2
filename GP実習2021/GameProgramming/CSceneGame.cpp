@@ -194,7 +194,9 @@ void CSceneGame::Init() {
 
 	CBubble*Bubble = new CBubble();
 
-	//CWakame*Wakame = new CWakame();
+	CWakame*Wakame = new CWakame();
+	Wakame->mRect.x = -400;
+	Wakame->mRect.y = -200;
 
 	Bubble->mRect.x = -400;
 	Bubble->mRect.y = -200;

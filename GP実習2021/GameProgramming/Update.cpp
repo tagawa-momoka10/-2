@@ -41,6 +41,7 @@ CTexture TextureSp_MGg;//ゲージ
 
 CTexture Texturekihou;//気泡
 CTexture TextureBuki;//武器
+CTexture Texturewa;//ワカメ
 
 //シーンマネージャのインスタンス
 CSceneManager SceneManager;
@@ -59,7 +60,7 @@ void Init() {
 	TextureEnemy.Load("resource\\same.tga");
 	TextureEnemy1.Load("resource\\same s.tga");
 
-	//TextureEnemy2.Load("resource\\.tga"); 
+	Texturewa.Load("resource\\wakame.tga"); 
 
 
 	TexturePlayerHP.Load("resource\\HP.tga");//主人公HP max
