@@ -207,15 +207,8 @@ void CSceneGame::Update() {
 	TaskManager::GetInstance()->Collision();
 	DrawTaskManager::GetInstance()->Draw();
 
-	//文字列の描画
-	/*CText::DrawString("Score", 500, 200, 20, 20);
-	sprintf(buf, "%d", CScore::mScore);
-	CText::DrawString(buf, 800, 450, 20, 20);
-	CText::DrawString("Time", 500, 400, 20, 20);*/
 
-	//if (Time > 0){
-	//	Time--;
-	//}
+
 
 	//整数を文字列に変換する
 	char buf[10];//9文字までOK
@@ -223,6 +216,12 @@ void CSceneGame::Update() {
 	//画面スクロール処理(H 700,W 1200,横にスクロール)
 	//描画範囲変数の作成　範囲下:-300　範囲上:300　固定
 	double mLeft = -600 , mRight = 600, mBottom = -350, mTop = 350;
+
+	//文字列の描画
+	CText::DrawString("Score",0,0,0,0);
+	sprintf(buf, "%d", CScore::mScore);
+	CText::DrawString(buf, 800, 450, 20, 20);
+
 	//画面範囲左の設定
 	mLeft = CPlayer::spInstance->mRect.x -550.0f;
 

@@ -32,18 +32,7 @@ void CWakame::Update(){
 
 void CWakame::Collision(CBase *i, CBase *y){
 
-	if (y->mTag == EPLAYER){
-		if (CKey::Push('A')){
-			
-		}
-		if (CKey::Push('D')){
-			
-		}
-		if (CKey::Push('S')){
-			
-		}
 
-	}
 }
 
 void CWakame::Render(){

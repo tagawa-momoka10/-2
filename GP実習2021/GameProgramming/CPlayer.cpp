@@ -33,6 +33,7 @@ int CPlayer::mPlayerPosition;
 int CPlayer::mChara1Hp;
 bool CPlayer::mMoving;
 bool CPlayer::mJumping;
+int mDashCount = 30;
 
 CPlayer*CPlayer::spInstance = 0;
 
@@ -79,6 +80,19 @@ void CPlayer::Update() {
 			mRect.h = 55;
 		}
 	}
+	//画面外から出ないように調整
+	if (mRect.x + mRect.w > 3600) {
+		mRect.x = 3600 - mRect.w;
+	}
+	if (mRect.x - mRect.w < -600) {
+		mRect.x = -600 + mRect.w;
+	}
+	if (mRect.y - mRect.h > 350){
+		mRect.y = 350 + mRect.h;
+	}
+	if (mRect.y - mRect.h < -350){
+		mRect.y = -350 + mRect.h;
+	}
 	mMoving = false;
 	if (mChara1Hp > 0 ){
 		if (mAttackCount <= 0){
@@ -114,13 +128,15 @@ void CPlayer::Update() {
 		if (mMoving == false){
 			mAniMoving = INITIALIZE;
 		}
+
 		if (CKey::Once('J') /*&& mJflag == false*/){
 			mJump = mRect.y;
 			mj = VJ0;
-			//mJflag = true;
+			//mJflag = true;w
 			mJumping = true;
 			mAniJump = DASHANICNT;
 		}
+
 		mRect.y += mj;
 		if (mRect.y > mJump){
 			mj += G;
@@ -132,10 +148,36 @@ void CPlayer::Update() {
 			mJumping = false;
 			mAniJump = INITIALIZE;
 		}
-		if (CKey::Once(VK_SPACE) /*&& mDflag == false */){
+
+		if (mDashCount > 0){
+			mDashCount--;
+		}
+
+		if (mDashCount == 0 && CKey::Once(VK_SPACE)){
 			
 				mDflag = true;
 				mAniDash = DASHANICNT;
+
+				if (mDashCount==0 && CKey::Push('A')) {
+					mRect.x -= 16;
+					//CBase::mFx = -1;
+					mMoving = true;
+
+				}
+				if (mDashCount == 0 && CKey::Push('D')) {
+					mRect.x += 16;
+					//CBase::mFx = 1;
+					mMoving = true;
+			
+				}
+
+				if (mDashCount == 0 && CKey::Push('S')){
+					mRect.y -= 16;
+					//CBase::mFx = 1;
+					mMoving = true;
+
+				}
+
 		}
 
 		if (mDflag == true){
@@ -145,19 +187,7 @@ void CPlayer::Update() {
 			mAniDash--;
 		}
 
-		//画面外から出ないように調整
-		if (mRect.x + mRect.w > 3600) {
-			mRect.x = 3600 - mRect.w;
-		}
-		if (mRect.x - mRect.w < -600) {
-			mRect.x = -600 + mRect.w;
-		}
-		if (mRect.y - mRect.h > 350 ){
-			mRect.y = 350 + mRect.h;
-		}
-		if (mRect.y - mRect.h < -350){
-			mRect.y = -350 + mRect.h;
-		}
+
 		if (mAttackFlag == false){
 			if (mAttackCount <= 0){
 				if (mDflag == false){
@@ -180,10 +210,6 @@ void CPlayer::Update() {
 			}
 		}
 		mAttackCount--;
-
-		if (mSpCount > 0){
-			mSpCount--;
-		}
 
 		if (mInvincibleTime > 0){
 			mInvincibleTime--;
@@ -357,6 +383,7 @@ void CPlayer::Collision(CBase *i, CBase *y){
 			return;
 		}
 	}
+
 	if (mRect.y == CEnemy::spInstance->mRect.y){
 		if (mInvincibleTime <= 0){
 			if (y->mEnabled){

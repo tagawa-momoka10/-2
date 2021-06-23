@@ -22,7 +22,6 @@ private:
 	int mAniMoving;	//歩行アニメーション用の変数
 	int mAniDash;	//ダッシュアニメーション用の変数
 	int mAniJump;	//ジャンプアニメーション用の変数
-	int mSpCount;	//必殺技判定出現までのタイム
 	int mChara1Die;	//キャラクター死亡時アニメーション
 	bool mChara1Dieflg;	//キャラクター死亡判定フラグ
 public:

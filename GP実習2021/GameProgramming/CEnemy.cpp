@@ -157,7 +157,6 @@ void CEnemy::Update() {
 	if (mAttack == false){
 		CEnemy::mMoving = false;
 		mAniMoving++;
-
 		mRect.x += SPEED;
 	}
 

@@ -175,6 +175,7 @@ void CHarpoon::Update() {
 	if (mRect.y < CEnemy::spInstance->mRect.y){
 		DrawTaskManager::GetInstance()->ChangePriority(&mDraw);
 	}
+	mRect.y = CPlayer::spInstance->mRect.y;
 }
 
 void CHarpoon::Render() {
