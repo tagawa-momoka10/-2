@@ -400,23 +400,6 @@ void CPlayer::Collision(CBase *i, CBase *y){
 						return;
 					}
 
-					if (y->mTag == EBOSSATTACK_S){
-						mChara1Hp -= 1;
-						mInvincibleTime = INVINCIBLETIME;
-						if (CBase::mFx >= 0){
-							mRect.x -= 30;
-						}
-						return;
-					}
-
-					if (y->mTag == EBOSSATTACK_A){
-						mChara1Hp -= 1;
-						mInvincibleTime = INVINCIBLETIME;
-						if (CBase::mFx >= 0){
-							mRect.x -= 30;
-						}
-						return;
-					}
 				}
 			}
 		}

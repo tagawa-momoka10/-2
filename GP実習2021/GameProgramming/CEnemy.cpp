@@ -93,38 +93,6 @@ void CEnemy::Update() {
 		}
 	}
 
-	//if (mMoving = true){
-	//	mRect.x -= 4;
-	//	CBase::mFx = -1;
-	//	mMoving = true;
-		//–{‘Ì‚É’Ç”ö‚µ‚ÄˆÚ“®‚·‚é
-	//if (mMoving = true){
-	//		mRect.x < CSSearch::spInstance->mRect.x + mEnemyPosition;
-	//		mMoving = true;
-	//	}
-
-	//else if (mMoving = true){
-	//		CSSearch::spInstance->mRect.x < mRect.x + mEnemyPosition;
-	//		mMoving = true;
-
-	//	}
-
-	//if (mMoving = true){
-	//		mRect.y < CSSearch::spInstance->mRect.y + mEnemyPosition;
-	//		mMoving = true;
-
-	//	}
-
-	//else if (mMoving = true){
-	//		CSSearch::spInstance->mRect.y < mRect.y + mEnemyPosition;
-	//		mMoving = true;
-
-	//	}
-	//}
-
-	//CEnemy::spInstance->mRect1.x = mRect1.x + CEnemy::mEnemyPosition;
-
-
 
 	//UŒ‚
 	if (mAttack == true && mAttackLag == 0){

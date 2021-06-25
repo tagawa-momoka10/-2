@@ -31,9 +31,26 @@ void CWakame::Update(){
 
 
 void CWakame::Collision(CBase *i, CBase *y){
+	//ƒvƒŒƒCƒ„[1‚Æ“–‚½‚Á‚½‚Æ‚«
+
+	if (y->mTag == EPLAYER){
+		if (y->mEnabled){
+
+		}
+	}
 
 
+	if (mRect.y - CPlayer::spInstance->mRect.y < 20){
+		if (y->mTag == EPLAYERATTACK){
+			if (mRect.Collision(y->mRect)){
+				//–³“Gó‘Ô‚Å–³‚¯‚ê‚Î
+
+				return;
+			}
+		}
+	}
 }
+
 
 void CWakame::Render(){
 	if (mTag == EWAKAME){

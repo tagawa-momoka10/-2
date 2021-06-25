@@ -288,43 +288,10 @@ void CHarpoon::Collision(CBase *i, CBase *y){
 							}
 							return;
 						}
-						if (y->mTag == EENEMYATTACK_S){
-							mInvincibleTime = INVINCIBLETIME;
-							if (CBase::mFx >= 0){
-								mRect.x -= 30;
-								CPlayer::spInstance->mRect.x -= 30;
-							}
-							else{
-								mRect.x += 30;
-								CPlayer::spInstance->mRect.x += 30;
-							}
-							return;
-						}
-						if (y->mTag == EBOSSATTACK_S){
-							mInvincibleTime = INVINCIBLETIME;
-							if (CBase::mFx >= 0){
-								mRect.x -= 30;
-								CPlayer::spInstance->mRect.x -= 30;
-							}
-							else{
-								mRect.x += 30;
-								CPlayer::spInstance->mRect.x += 30;
-							}
-							return;
-						}
 
-						if (y->mTag == EBOSSATTACK_A){
-							mInvincibleTime = INVINCIBLETIME;
-							if (CBase::mFx >= 0){
-								mRect.x -= 30;
-								CPlayer::spInstance->mRect.x -= 30;
-							}
-							else{
-								mRect.x += 30;
-								CPlayer::spInstance->mRect.x += 30;
-							}
-							return;
-						}
+
+
+						return;
 					}
 				}
 			}

@@ -26,17 +26,14 @@ public:
 		EENEMMY_SS,
 		EENEMY_S,
 		EENEMYATTACK_S,
-		EBOSS,
-		EBOSSATTACK_S,		//É{ÉXÇÃçUåÇ(ãﬂãóó£)
-		EBOSSATTACK_A,
-		EBOSSHP,
+		EWAKAME,
 		EITEM,
 		EICON1,
 		EICON2,
-		EPLAYERHP,
 		EKIHOU,
-		EWAKAME,
-		EHARPOON
+		EHARPOON,
+		EPLAYERHP,
+
 	};
 	ETag mTag;
 };

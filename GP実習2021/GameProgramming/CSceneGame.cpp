@@ -27,7 +27,6 @@
 #define INITIALIZE 0	//‰Šú‰»
 #define TIME 200*60
 
-//extern CTexture Texture2; //”wŒi
 
 int CSceneGame::Time = TIME;
 int CSceneGame::mCharaHp1store = 0;
@@ -57,15 +56,13 @@ void CSceneGame::Init() {
 	Enemy->mRect.y = -200;
 	Enemy->mRect.mEnabled = true;
 
-	//CSSearch*SSearch = new CSSearch();
-
-	//CEnemy *Enemy2 = new CEnemy();
-	//Enemy2->mRect.x = 600;
-	//Enemy2->mRect.y = -100;
-	//Enemy2->mRect.mEnabled = true;
+	CEnemy *Enemy2 = new CEnemy();
+	Enemy2->mRect.x = 2000;
+	Enemy2->mRect.y = 300;
+	Enemy2->mRect.mEnabled = true;
 
 	//CEnemy *Enemy3 = new CEnemy();
-	//Enemy3->mRect.x = -900;
+	//Enemy3->mRect.x = 2000;
 	//Enemy3->mRect.y = -100;
 	//Enemy3->mRect.mEnabled = true;
 
@@ -74,10 +71,15 @@ void CSceneGame::Init() {
 	Enemy4->mRect.y = -300;
 	Enemy4->mRect.mEnabled = true;
 
-	/*CEnemy2 *Enemy5 = new CEnemy2();
+	CEnemy2 *Enemy5 = new CEnemy2();
 	Enemy5->mRect.x = 900;
 	Enemy5->mRect.y = -300;
-	Enemy5->mRect.mEnabled = true;*/
+	Enemy5->mRect.mEnabled = true;
+
+	CEnemy2 *Enemy6 = new CEnemy2();
+	Enemy6->mRect.x = 1050;
+	Enemy6->mRect.y = -100;
+	Enemy6->mRect.mEnabled = true;
 
 	//ƒNƒ‰ƒX‚Ìƒƒ“ƒo•Ï”‚Ö‚Ì‘ã“ü
 	CPlayer *Player = new CPlayer();
@@ -185,21 +187,19 @@ void CSceneGame::Init() {
 	Item11->mRect.y = 0;
 	Item11->mRect.mEnabled = true;
 
-
-	CPlayerHP *PlayerHP = new CPlayerHP();
-
-
-	CIcon2*Icon2 = new CIcon2();
-	CIcon1*Icon1 = new CIcon1();
-
-	CBubble*Bubble = new CBubble();
-
 	CWakame*Wakame = new CWakame();
 	Wakame->mRect.x = -400;
 	Wakame->mRect.y = -200;
 
+	CBubble*Bubble = new CBubble();
 	Bubble->mRect.x = -400;
 	Bubble->mRect.y = -200;
+
+	CPlayerHP *PlayerHP = new CPlayerHP();
+
+	CIcon2*Icon2 = new CIcon2();
+	CIcon1*Icon1 = new CIcon1();
+
 }
 
 void CSceneGame::Update() {
