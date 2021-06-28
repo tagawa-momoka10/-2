@@ -23,6 +23,7 @@ private:
 	int mAniDash;	//ダッシュアニメーション用の変数
 	int mAniJump;	//ジャンプアニメーション用の変数
 	int mChara1Die;	//キャラクター死亡時アニメーション
+	int m_DaTime;	//ダッシュ中
 	bool mChara1Dieflg;	//キャラクター死亡判定フラグ
 public:
 	CPlayer();

@@ -1,12 +1,8 @@
-﻿2021/06/25 10:32:24 にビルドを開始しました。
+﻿2021/06/28 10:13:00 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\GameProgramming\GameProgramming.vcxproj" (Build ターゲット)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CSceneGame.cpp
-         CSceneGame.cpp
-     1>c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cscenegame.cpp(222): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 'sprintf' の宣言を確認してください。
-     1>c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cscenegame.cpp(238): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-     1>c:\users\himaw\onedrive\デスクトップ\2d\game2\gp実習2021\gameprogramming\cscenegame.cpp(253): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CPlayer.cpp
+         CPlayer.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Debug\GameProgramming.exe" /INCREMENTAL /NOLOGO glew32.lib glfw3.lib glfw3dll.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Debug\GameProgramming.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Debug\GameProgramming.lib" /MACHINE:X86 Debug\CBubble.obj
          Debug\CBase.obj
@@ -50,4 +46,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:01.49
+経過時間 00:00:00.78

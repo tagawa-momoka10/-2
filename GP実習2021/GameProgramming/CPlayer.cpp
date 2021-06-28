@@ -33,7 +33,8 @@ int CPlayer::mPlayerPosition;
 int CPlayer::mChara1Hp;
 bool CPlayer::mMoving;
 bool CPlayer::mJumping;
-int mDashCount = 30;
+int mDashCount = 0;
+int m_DaTime = 0;
 
 CPlayer*CPlayer::spInstance = 0;
 
@@ -41,7 +42,6 @@ CPlayer::CPlayer()
 : mDash(0)
 , mDflag(false)
 , mJump(0)
-//, mJflag(false)
 , mAniCnt(0)
 , mInvincibleTime(0)
 , mAniDash(0)
@@ -149,35 +149,40 @@ void CPlayer::Update() {
 			mAniJump = INITIALIZE;
 		}
 
-		if (mDashCount > 0){
-			mDashCount--;
-		}
 
-		if (mDashCount == 0 && CKey::Once(VK_SPACE)){
-			
-				mDflag = true;
-				mAniDash = DASHANICNT;
 
-				if (mDashCount==0 && CKey::Push('A')) {
-					mRect.x -= 16;
-					//CBase::mFx = -1;
-					mMoving = true;
+		if (mDashCount == 30 && m_DaTime == 30 && CKey::Once(VK_SPACE)){
+			mDflag = true;
+			mAniDash = DASHANICNT;
 
+			if (mDashCount == 30 && m_DaTime == 30 && CKey::Push('A')) {
+				mRect.x -= 16;
+				mMoving = true;
+
+			}
+			if (mDashCount == 30 && m_DaTime == 30 && CKey::Push('D')) {
+				mRect.x += 16;
+				mMoving = true;
+
+			}
+
+			if (mDashCount == 30 && m_DaTime == 30 && CKey::Push('S')){
+				mRect.y -= 16;
+				mMoving = true;
+
+			}
+			//if (m_DaTime > 0){
+				mDashCount--;
+				if (mDashCount == 0){
+					mDashCount = 30;
 				}
-				if (mDashCount == 0 && CKey::Push('D')) {
-					mRect.x += 16;
-					//CBase::mFx = 1;
-					mMoving = true;
-			
+			//}
+			//if (m_DaTime > 0){
+				m_DaTime--;
+				if (m_DaTime == 0){
+					m_DaTime = 30;
 				}
-
-				if (mDashCount == 0 && CKey::Push('S')){
-					mRect.y -= 16;
-					//CBase::mFx = 1;
-					mMoving = true;
-
-				}
-
+			//}
 		}
 
 		if (mDflag == true){
