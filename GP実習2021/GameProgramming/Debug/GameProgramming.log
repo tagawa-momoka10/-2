@@ -1,4 +1,4 @@
-﻿2021/06/28 10:13:00 にビルドを開始しました。
+﻿2021/06/29 11:33:47 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\GameProgramming\GameProgramming.vcxproj" (Build ターゲット)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CPlayer.cpp
@@ -46,4 +46,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:00.78
+経過時間 00:00:01.91

@@ -34,7 +34,6 @@ int CPlayer::mChara1Hp;
 bool CPlayer::mMoving;
 bool CPlayer::mJumping;
 int mDashCount = 0;
-int m_DaTime = 0;
 
 CPlayer*CPlayer::spInstance = 0;
 
@@ -129,10 +128,9 @@ void CPlayer::Update() {
 			mAniMoving = INITIALIZE;
 		}
 
-		if (CKey::Once('J') /*&& mJflag == false*/){
+		if (CKey::Once('J') ){
 			mJump = mRect.y;
 			mj = VJ0;
-			//mJflag = true;w
 			mJumping = true;
 			mAniJump = DASHANICNT;
 		}
@@ -144,54 +142,53 @@ void CPlayer::Update() {
 		else {
 			mj = INITIALIZE;
 			mJump = INITIALIZE;
-			//mJflag = false;
 			mJumping = false;
 			mAniJump = INITIALIZE;
 		}
 
-
-
-		if (mDashCount == 30 && m_DaTime == 30 && CKey::Once(VK_SPACE)){
-			mDflag = true;
-			mAniDash = DASHANICNT;
-
-			if (mDashCount == 30 && m_DaTime == 30 && CKey::Push('A')) {
-				mRect.x -= 16;
-				mMoving = true;
-
-			}
-			if (mDashCount == 30 && m_DaTime == 30 && CKey::Push('D')) {
-				mRect.x += 16;
-				mMoving = true;
-
-			}
-
-			if (mDashCount == 30 && m_DaTime == 30 && CKey::Push('S')){
-				mRect.y -= 16;
-				mMoving = true;
-
-			}
-			//if (m_DaTime > 0){
-				mDashCount--;
-				if (mDashCount == 0){
-					mDashCount = 30;
-				}
-			//}
-			//if (m_DaTime > 0){
-				m_DaTime--;
-				if (m_DaTime == 0){
-					m_DaTime = 30;
-				}
-			//}
 		}
 
 		if (mDflag == true){
 			mInvincibleTime = INVINCIBLETIME_DASH;
+
+
+			if (mDashCount <= 0 && CKey::Once(VK_SPACE)){
+				mDflag = true;
+				mAniDash = DASHANICNT;
+
+				if (mDashCount <= 0 && CKey::Push('A')) {
+					mRect.x -= 16;
+					mMoving = true;
+					mDashCount--;
+
+				}
+				if (mDashCount <= 0 && CKey::Push('D')) {
+					mRect.x += 16;
+					mMoving = true;
+					mDashCount--;
+
+				}
+
+				if (mDashCount <= 0 && CKey::Push('S')){
+					mRect.y -= 16;
+					mMoving = true;
+					mDashCount--;
+
+				}
+
+				if (mDashCount > -20)
+				{
+					mDashCount--;
+				}
+				else
+				{
+					mDflag = false;
+					mDashCount = 60;
+				}
 		}
 		if (mAniDash > 0){
 			mAniDash--;
 		}
-
 
 		if (mAttackFlag == false){
 			if (mAttackCount <= 0){
