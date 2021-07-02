@@ -40,7 +40,6 @@ void CSceneManager::Update() {
 			mpScene->Init();
 			break;
 
-
 		case CScene::EGAME2:
 			mpScene = new CSceneGame2();
 			mpScene->Init();

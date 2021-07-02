@@ -14,10 +14,10 @@ CItem2::CItem2()
 	//•`‰æƒ^ƒXƒN‚É“o˜^
 	mDraw.RegistDraw(this, (DrawFunc)&CItem2::Render, DrawPriority::Opacity, "CItem2");
 
-	mRect.x = 0;
-	mRect.y = 0;
-	mRect.w = 30;
-	mRect.h = 30;
+	mRect.x = 80;
+	mRect.y = 10;
+	mRect.w = 40;
+	mRect.h = 5;
 
 }
 

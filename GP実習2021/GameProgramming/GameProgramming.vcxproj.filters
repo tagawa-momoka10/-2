@@ -90,9 +90,6 @@
     <ClCompile Include="CSound.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="CSceneGame2.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="CItem1.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -124,6 +121,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="CSSearch.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneGame2.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -212,9 +212,6 @@
     <ClInclude Include="CSound.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="CSceneGame2.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="CItem1.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
@@ -243,6 +240,9 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="CSSearch.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneGame2.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>

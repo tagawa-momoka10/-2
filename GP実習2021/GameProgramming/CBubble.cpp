@@ -22,6 +22,9 @@ void CBubble::Update(){
 	mEnabled = true;
 	mRect.y += 1;
 
+	if (mRect.y > 500){
+		mRect.y = -300;
+	}
 }
 
 

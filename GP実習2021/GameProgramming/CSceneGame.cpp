@@ -1,4 +1,5 @@
 #include "CSceneGame.h"
+#include "CSceneGame2.h"
 #include "CTexture.h"
 #include "CMap2.h"
 #include "CKey.h"
@@ -185,20 +186,38 @@ void CSceneGame::Init() {
 	CItem2*Item11 = new CItem2();
 	Item11->mRect.x = -200;
 	Item11->mRect.y = 0;
+	Item11->mRect.w = 40;
+	Item11->mRect.h = 5;
 	Item11->mRect.mEnabled = true;
 
-	CWakame*Wakame = new CWakame();
-	Wakame->mRect.x = -400;
-	Wakame->mRect.y = -200;
 
-	CBubble*Bubble = new CBubble();
-	Bubble->mRect.x = -400;
-	Bubble->mRect.y = -200;
+	CWakame*Wakame1 = new CWakame();
+	Wakame1->mRect.x = 100;
+	Wakame1->mRect.y = -200;
+
+	CWakame*Wakame2 = new CWakame();
+	Wakame2->mRect.x = 150;
+	Wakame2->mRect.y = -200;
+
+	CWakame*Wakame3 = new CWakame();
+	Wakame3->mRect.x = 900;
+	Wakame3->mRect.y = -200;
+
+
+	CBubble*Bubble1 = new CBubble();
+	Bubble1->mRect.x = -100;
+	Bubble1->mRect.y = -200;
+
+	CBubble*Bubble2 = new CBubble();
+	Bubble2->mRect.x = 400;
+	Bubble2->mRect.y = 200;
+
 
 	CPlayerHP *PlayerHP = new CPlayerHP();
 
-	CIcon2*Icon2 = new CIcon2();
-	CIcon1*Icon1 = new CIcon1();
+
+	//CIcon2*Icon2 = new CIcon2();
+	//CIcon1*Icon1 = new CIcon1();
 
 }
 
@@ -217,11 +236,6 @@ void CSceneGame::Update() {
 	//•`‰æ”ÍˆÍ•Ï”‚Ìì¬@”ÍˆÍ‰º:-300@”ÍˆÍã:300@ŒÅ’è
 	double mLeft = -600 , mRight = 600, mBottom = -350, mTop = 350;
 
-	//•¶Žš—ñ‚Ì•`‰æ
-	CText::DrawString("Score",0,0,0,0);
-	sprintf(buf, "%d", CScore::mScore);
-	CText::DrawString(buf, 800, 450, 20, 20);
-
 	//‰æ–Ê”ÍˆÍ¶‚ÌÝ’è
 	mLeft = CPlayer::spInstance->mRect.x -550.0f;
 
@@ -239,6 +253,11 @@ void CSceneGame::Update() {
 		//‰æ–Êˆ—
 		VectorRect[i]->Render();
 	}
+
+	//•¶Žš—ñ‚Ì•`‰æ
+	CText::DrawString("Score", mLeft+100, mRight-100, mBottom+100, mTop-100);
+	sprintf(buf, "%d", CScore::mScore);
+	CText::DrawString(buf, mLeft+50, mRight-50, mBottom+50, mTop-50);
 
 }
 

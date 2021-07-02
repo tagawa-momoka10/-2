@@ -145,16 +145,19 @@ void CPlayer::Update() {
 			mJumping = false;
 			mAniJump = INITIALIZE;
 		}
-
+		if (mDashCount > 0){
+			mDashCount--;
+		}
 		}
 
+	if (mDashCount <= 0 && CKey::Once(VK_SPACE)){
+		mDflag = true;
+		mAniDash = DASHANICNT;
+	}
 		if (mDflag == true){
 			mInvincibleTime = INVINCIBLETIME_DASH;
 
 
-			if (mDashCount <= 0 && CKey::Once(VK_SPACE)){
-				mDflag = true;
-				mAniDash = DASHANICNT;
 
 				if (mDashCount <= 0 && CKey::Push('A')) {
 					mRect.x -= 16;
@@ -226,7 +229,7 @@ void CPlayer::Update() {
 		if (mChara1Hp < 101){
 			mChara1Hp--;
 		}
-	}
+	
 	if (mRect.y<CEnemy::spInstance->mRect.y){
 		DrawTaskManager::GetInstance()->ChangePriority(&mDraw);
 	}
@@ -369,21 +372,51 @@ void CPlayer::Render() {
 void CPlayer::Collision(CBase *i, CBase *y){
 	if (mRect.Collision(y->mRect)){
 		if (y->mTag == EITEM1){
-			mChara1Hp += 1;
-			return;
-		}
-		if (y->mTag == EITEM2){
-			mChara1Hp += 3;
-			return;
-		}
-		if (y->mTag == EITEM2){
-			mChara1Hp += 5;
-			return;
-		}
-		if (y->mTag == EITEM2){
 			mChara1Hp += 10;
 			return;
 		}
+		if (y->mTag == EITEM2){
+			mChara1Hp += 30;
+			return;
+		}
+		if (y->mTag == EITEM3){
+			mChara1Hp += 50;
+			return;
+		}
+		if (y->mTag == EITEM4){
+			mChara1Hp += 100;
+			return;
+		}
+
+		if (y->mTag == EKIHOU){
+			mChara1Hp += 10;
+			return;
+		}
+	}
+
+	if (mRect.Collision(y->mRect)){
+		if (y->mTag == EWAKAME){
+			if (CKey::Push('A')) {
+				mRect.x += 1.5;
+				mMoving = true;
+				mDashCount--;
+
+			}
+			if (CKey::Push('D')) {
+				mRect.x -= 0.5;
+				mMoving = true;
+				mDashCount--;
+
+			}
+
+			if ( CKey::Push('S')){
+				mRect.y += 0.5;
+				mMoving = true;
+				mDashCount--;
+
+			}
+		}
+
 	}
 
 	if (mRect.y == CEnemy::spInstance->mRect.y){

@@ -9,11 +9,6 @@
 class CSceneGame2 : public CScene {
 public:
 
-	char buf[10];
-
-	float mFadeout;
-	float mFadein;
-
 	//初期化処理のオーバーライド
 	void Init();
 	//更新処理のオーバーライド
@@ -23,6 +18,16 @@ public:
 	//デストラクタの宣言
 	~CSceneGame2();
 
+	static int Time;
+	char buf[10];
+
+	static int mCharaHp1store;
+	static int mCharaHp2store;
+	static int mSpstore;
+	static int mCombostore;
+	static int mScorestore;
+	float mFadeout;	//フェードアウト
+	float mFadein;	//フェードイン
 };
 
 #endif
