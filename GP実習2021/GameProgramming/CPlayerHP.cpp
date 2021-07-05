@@ -36,20 +36,20 @@ CPlayerHP::CPlayerHP()
 }
 
 void CPlayerHP::Update(){
-	if (CPlayer::mChara1Hp < 101){
+	if (CPlayer::mHp < 101){
 		mPositionY1 = m_Rect1.y;
 		mPositionX1 = m_Rect1.x;
-		m_Rect1.y = CPlayer::spInstance->mRect.y+CPlayer::spInstance->mRect.h+m_Rect1.h+20;
+		m_Rect1.y = CPlayer::spInstance->mRect.y + CPlayer::spInstance->mRect.h + m_Rect1.h + 20;
 		m_Rect1.x = CPlayer::spInstance->mRect.x;
 
 		mPositionY2 = m_Rect2.y;
 		mPositionX2 = m_Rect2.x;
-		m_Rect2.y = CPlayer::spInstance->mRect.y + CPlayer::spInstance->mRect.h + m_Rect2.h+20;
+		m_Rect2.y = CPlayer::spInstance->mRect.y + CPlayer::spInstance->mRect.h + m_Rect2.h + 20;
 		m_Rect2.x = CPlayer::spInstance->mRect.x;
 
+		m_Rect2.x--;
+		
 	}
-	m_Rect2.w -= 2;
-
 }
 
 
@@ -57,5 +57,5 @@ void CPlayerHP::Render() {
 	m_Rect1.Render(TexturePlayerHP, 0, 200, 50, 0);
 
 	m_Rect2.Render(TexturePlayerHP, 0, 200, 50, 0);
-	
+
 }

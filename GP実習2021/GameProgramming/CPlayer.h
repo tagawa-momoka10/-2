@@ -33,7 +33,7 @@ public:
 	static int mAttackCount;		//攻撃時間
 	static int mDashCount;			//ダッシュ時間
 	static int mPlayerPosition;		//プレイヤー位置
-	static int mChara1Hp;	//主人公HP
+	static int mHp;	//主人公HP
 	static bool mMoving;	//true(歩行中)	false(静止状態)
 	static bool CPlayer::mJumping;	//プレイヤージャンプ中フラグ
 

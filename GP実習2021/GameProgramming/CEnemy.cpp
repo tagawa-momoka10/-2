@@ -319,20 +319,18 @@ void CEnemy::Collision(CBase *i, CBase *y) {
 					
 					//’Ç”ö
 					if (mRect.x < CPlayer::spInstance->mRect.x){
-						mRect.x += SPEED;
+						mRect.x += 2+SPEED;
 					}
 					else if (CPlayer::spInstance->mRect.x < mRect.x){
-						mRect.x -= SPEED;
+						mRect.x -= 2-SPEED;
 					}
 
 					if (mRect.y < CPlayer::spInstance->mRect.y){
-						mRect.y += SPEED;
-						if (mRect.y > -140){
-							mRect.y -= SPEED;
-						}
+						mRect.y += 2+SPEED;
+
 					}
 					else if (CPlayer::spInstance->mRect.y < mRect.y){
-						mRect.y -= SPEED;
+						mRect.y -= 2-SPEED;
 					}
 
 

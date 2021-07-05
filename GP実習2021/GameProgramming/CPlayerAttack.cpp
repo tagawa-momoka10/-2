@@ -21,6 +21,7 @@ void CPlayerAttack::Update()
 	if (mRect.y <= CEnemy::spInstance->mRect.y){
 		DrawTaskManager::GetInstance()->ChangePriority(&m_Draw);
 	}
+	
 }
 void CPlayerAttack::Render()
 {

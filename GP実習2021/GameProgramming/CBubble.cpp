@@ -42,8 +42,8 @@ void CBubble::Collision(CBase *i, CBase *y){
 			Kill();
 		}
 
-		if (CPlayer::mChara1Hp < 100){
-			CPlayer::mChara1Hp += 20;
+		if (CPlayer::mHp < 100){
+			CPlayer::mHp += 20;
 		}
 	}
 }

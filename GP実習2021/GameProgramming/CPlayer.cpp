@@ -30,7 +30,7 @@ int CPlayer::mAttackCount;
 int CPlayer::mDashCount;
 bool CPlayer::mCharaSwitch;
 int CPlayer::mPlayerPosition;
-int CPlayer::mChara1Hp;
+int CPlayer::mHp;
 bool CPlayer::mMoving;
 bool CPlayer::mJumping;
 int mDashCount = 0;
@@ -49,7 +49,7 @@ CPlayer::CPlayer()
 {
 	//•`‰æƒ^ƒXƒN‚É“o˜^
 	mDraw.RegistDraw(this, (DrawFunc)&CPlayer::Render, DrawPriority::Transparent, "Player");
-	mChara1Hp = 100;
+	mHp = 100;
 	mTag = EPLAYER;
 	spInstance = this;
 	mRect.x = -200;
@@ -68,7 +68,7 @@ CPlayer::CPlayer()
 
 void CPlayer::Update() {
 	mRect.y -= 1;
-	if (mChara1Hp <= 0 && mChara1Dieflg == false){
+	if (mHp <= 0 && mChara1Dieflg == false){
 		mChara1Die = DIE;
 		mChara1Dieflg = true;
 	}
@@ -93,7 +93,7 @@ void CPlayer::Update() {
 		mRect.y = -350 + mRect.h;
 	}
 	mMoving = false;
-	if (mChara1Hp > 0 ){
+	if (mHp > 0){
 		if (mAttackCount <= 0){
 			if (CKey::Push('A')) {
 				mRect.x -= 4;
@@ -128,7 +128,7 @@ void CPlayer::Update() {
 			mAniMoving = INITIALIZE;
 		}
 
-		if (CKey::Once('J') ){
+		if (CKey::Once('J')){
 			mJump = mRect.y;
 			mj = VJ0;
 			mJumping = true;
@@ -148,7 +148,7 @@ void CPlayer::Update() {
 		if (mDashCount > 0){
 			mDashCount--;
 		}
-		}
+	}
 
 	if (mDashCount <= 0 && CKey::Once(VK_SPACE)){
 		mDflag = true;
@@ -156,8 +156,6 @@ void CPlayer::Update() {
 	}
 		if (mDflag == true){
 			mInvincibleTime = INVINCIBLETIME_DASH;
-
-
 
 				if (mDashCount <= 0 && CKey::Push('A')) {
 					mRect.x -= 16;
@@ -223,11 +221,11 @@ void CPlayer::Update() {
 			mAttackFlag = false;
 		}
 
-		if (mChara1Hp > 100){
-			mChara1Hp = 100;
+		if (mHp > 100){
+			mHp = 100;
 		}
-		if (mChara1Hp < 101){
-			mChara1Hp--;
+		if (mHp < 101){
+			mHp--;
 		}
 	
 	if (mRect.y<CEnemy::spInstance->mRect.y){
@@ -238,7 +236,7 @@ void CPlayer::Update() {
 void CPlayer::Render() {
 	if (mChara1Dieflg == false){
 		if (mAttackCount <= 0  && mInvincibleTime == 0
-			&& mMoving == false && mDflag == false && mChara1Hp > 0){
+			&& mMoving == false && mDflag == false && mHp > 0){
 			if (CBase::mFx >= 0){
 				mRect.Render(TextureChara1, 200, 0, 200, 0);
 			}
@@ -246,7 +244,7 @@ void CPlayer::Render() {
 				mRect.Render(TextureChara1, 0, 200, 200, 0);
 			}
 		}
-		if (mInvincibleTime != 0 && mAttackCount <= 0 && mDflag == false && mChara1Hp > 0){
+		if (mInvincibleTime != 0 && mAttackCount <= 0 && mDflag == false && mHp > 0){
 			mAniCnt++;
 			mAniCnt %= ANICNT;
 			if (mAniCnt < ANICNT / 2){
@@ -372,24 +370,24 @@ void CPlayer::Render() {
 void CPlayer::Collision(CBase *i, CBase *y){
 	if (mRect.Collision(y->mRect)){
 		if (y->mTag == EITEM1){
-			mChara1Hp += 10;
+			mHp += 10;
 			return;
 		}
 		if (y->mTag == EITEM2){
-			mChara1Hp += 30;
+			mHp += 30;
 			return;
 		}
 		if (y->mTag == EITEM3){
-			mChara1Hp += 50;
+			mHp += 50;
 			return;
 		}
 		if (y->mTag == EITEM4){
-			mChara1Hp += 100;
+			mHp += 100;
 			return;
 		}
 
 		if (y->mTag == EKIHOU){
-			mChara1Hp += 10;
+			mHp += 10;
 			return;
 		}
 	}
@@ -424,7 +422,7 @@ void CPlayer::Collision(CBase *i, CBase *y){
 			if (y->mEnabled){
 				if (mRect.Collision(y->mRect)){
 					if (y->mTag == EENEMYATTACK_S){
-						mChara1Hp -= 1;
+						mHp -= 1;
 						mInvincibleTime = INVINCIBLETIME;
 						if (CBase::mFx >= 0){
 							mRect.x -= 30;

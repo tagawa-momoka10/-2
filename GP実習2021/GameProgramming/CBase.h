@@ -12,6 +12,7 @@ public:
 	CRectangle mRect;
 	CRectangle mRect1;
 
+
 	bool mEnabled;
 	virtual void Collision(CBase *i,CBase *y){}
 	enum ETag{

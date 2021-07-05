@@ -242,18 +242,18 @@ void CSceneGame2::Update() {
 
 }
 
-//
-////次のシーンの取得
-//CScene::EScene CSceneGame2::GetNextScene() {
-//	return mScene;
-//}
-////デストラクタ
-//CSceneGame2::~CSceneGame2() {
-//	//全てのインスタンスを削除します
-//	for (int i = 0; i < VectorRect.size(); i++) {
-//		//インスタンスの削除
-//		delete VectorRect[i];
-//	}
-//	//可変長配列のクリア
-//	VectorRect.clear();
-//}
+
+//次のシーンの取得
+CScene::EScene CSceneGame2::GetNextScene() {
+	return mScene;
+}
+//デストラクタ
+CSceneGame2::~CSceneGame2() {
+	//全てのインスタンスを削除します
+	for (int i = 0; i < VectorRect.size(); i++) {
+		//インスタンスの削除
+		delete VectorRect[i];
+	}
+	//可変長配列のクリア
+	VectorRect.clear();
+}

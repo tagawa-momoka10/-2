@@ -17,10 +17,10 @@ bool CWakame::mMoving;
 CWakame::CWakame(){
 	mDraw.RegistDraw(this, (DrawFunc)&CWakame::Render, DrawPriority::Transparent, "CWakame");
 	mTag = EWAKAME;
-	mRect.x = 40;
-	mRect.y = 600;
-	mRect.w = 20;
-	mRect.h = 300;
+	m_RectW.x = 40;
+	m_RectW.y = 600;
+	m_RectW.w = 20;
+	m_RectW.h = 300;
 	mAniMoving = INITIALIZE;
 
 }
@@ -44,19 +44,8 @@ void CWakame::Collision(CBase *i, CBase *y){
 
 			}
 			if (CKey::Push('S')) {
-				mRect.x += 2;
+				mRect.y += 2;
 
-			}
-		}
-	}
-
-
-	if (mRect.y - CPlayer::spInstance->mRect.y < 20){
-		if (y->mTag == EPLAYERATTACK){
-			if (mRect.Collision(y->mRect)){
-				//ñ≥ìGèÛë‘Ç≈ñ≥ÇØÇÍÇŒ
-
-				return;
 			}
 		}
 	}
@@ -65,6 +54,6 @@ void CWakame::Collision(CBase *i, CBase *y){
 
 void CWakame::Render(){
 	if (mTag == EWAKAME){
-		mRect.Render(Texturewa, 0, 200, 600, 0);
+		m_RectW.Render(Texturewa, 0, 200, 600, 0);
 	}
 }

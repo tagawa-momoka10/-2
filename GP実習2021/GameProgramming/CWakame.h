@@ -16,5 +16,6 @@ private:
 	static bool mMoving;	//true(•às’†)	false(Ã~ó‘Ô)
 public:
 	CWakame();
+	CRectangle m_RectW;
 };
 #endif 

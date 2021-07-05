@@ -49,7 +49,7 @@ CHarpoon::CHarpoon()
 
 void CHarpoon::Update() {
 	CPlayer::mMoving = false;
-	if (CPlayer::mChara1Hp > 0){
+	if (CPlayer::mHp > 0){
 		if (CPlayer::mAttackCount <= 0 && mAttackCount <= 0){
 
 			if (CKey::Push('A')) {
@@ -140,7 +140,7 @@ void CHarpoon::Update() {
 							attack->mExistCount = EXIST_TIME;
 							mAttackCount = EXIST_TIME;
 							CPlayer::mAttackFlag = true;*/
-							}
+						}
 					}
 				}
 
@@ -151,19 +151,24 @@ void CHarpoon::Update() {
 					if (CPlayer::mAttackFlag == false){
 						/*if (mFx >= 0){
 							attack->mRect.x = mRect.x + ATTACKRANGE;
-						}
-						else{
+							}
+							else{
 							attack->mRect.x = mRect.x - ATTACKRANGE;
-						}
-						attack->mRect.y = mRect.y - ATTACKPOSITION;
-						attack->mExistCount = EXIST_TIME;
-						CPlayer::mAttackFlag = true;*/
+							}
+							attack->mRect.y = mRect.y - ATTACKPOSITION;
+							attack->mExistCount = EXIST_TIME;
+							CPlayer::mAttackFlag = true;*/
 					}
 
 				}
 
 			}
 		}
+
+
+		mAttackCount--;
+
+
 		if (mInvincibleTime > 0){
 			mInvincibleTime--;
 		}

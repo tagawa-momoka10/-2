@@ -62,11 +62,6 @@ void CSceneGame::Init() {
 	Enemy2->mRect.y = 300;
 	Enemy2->mRect.mEnabled = true;
 
-	//CEnemy *Enemy3 = new CEnemy();
-	//Enemy3->mRect.x = 2000;
-	//Enemy3->mRect.y = -100;
-	//Enemy3->mRect.mEnabled = true;
-
 	CEnemy2 *Enemy4 = new CEnemy2();
 	Enemy4->mRect.x = -900;
 	Enemy4->mRect.y = -300;
@@ -88,8 +83,10 @@ void CSceneGame::Init() {
 	Player->mRect.x = -600;
 	Player->mRect.y = 0;
 
+
 	CHarpoon*Harpoon = new CHarpoon();
 	Harpoon->mRect.mEnabled = true;
+
 
 	CMap2*Map = new CMap2();
 	////ŽlŠpŒ`‚É’l‚ð‘ã“ü
@@ -99,17 +96,9 @@ void CSceneGame::Init() {
 	Map->m_Rect1.w = 3600;
 	Map->m_Rect1.h = 350;
 
-	int map[6][8] =
-	{
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-	};
 
 	CSmg*SMg = new CSmg();
+
 
 	CItem1*Item1 = new CItem1();
 	Item1->mRect.x = 0;
@@ -192,16 +181,25 @@ void CSceneGame::Init() {
 
 
 	CWakame*Wakame1 = new CWakame();
-	Wakame1->mRect.x = 100;
-	Wakame1->mRect.y = -200;
+	Wakame1->m_RectW.x = 100;
+	Wakame1->m_RectW.y = -200;
+	Wakame1->m_RectW.w = 20;
+	Wakame1->m_RectW.h = 150;
+	Wakame1->mRect.mEnabled = true;
 
 	CWakame*Wakame2 = new CWakame();
-	Wakame2->mRect.x = 150;
-	Wakame2->mRect.y = -200;
+	Wakame2->m_RectW.x = 150;
+	Wakame2->m_RectW.y = -200;
+	Wakame2->m_RectW.w = 20;
+	Wakame2->m_RectW.h = 150;
+	Wakame2->mRect.mEnabled = true;
 
 	CWakame*Wakame3 = new CWakame();
-	Wakame3->mRect.x = 900;
-	Wakame3->mRect.y = -200;
+	Wakame3->m_RectW.x = 900;
+	Wakame3->m_RectW.y = -200;
+	Wakame3->m_RectW.w = 20;
+	Wakame3->m_RectW.h = 150;
+	Wakame3->mRect.mEnabled = true;
 
 
 	CBubble*Bubble1 = new CBubble();
@@ -215,9 +213,6 @@ void CSceneGame::Init() {
 
 	CPlayerHP *PlayerHP = new CPlayerHP();
 
-
-	//CIcon2*Icon2 = new CIcon2();
-	//CIcon1*Icon1 = new CIcon1();
 
 }
 
