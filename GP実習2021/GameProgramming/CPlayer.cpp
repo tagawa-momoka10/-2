@@ -49,7 +49,7 @@ CPlayer::CPlayer()
 {
 	//•`‰æƒ^ƒXƒN‚É“o˜^
 	mDraw.RegistDraw(this, (DrawFunc)&CPlayer::Render, DrawPriority::Transparent, "Player");
-	mHp = 100;
+	mHp = 2;
 	mTag = EPLAYER;
 	spInstance = this;
 	mRect.x = -200;
@@ -221,12 +221,6 @@ void CPlayer::Update() {
 			mAttackFlag = false;
 		}
 
-		if (mHp > 100){
-			mHp = 100;
-		}
-		if (mHp < 101){
-			mHp--;
-		}
 	
 	if (mRect.y<CEnemy::spInstance->mRect.y){
 		DrawTaskManager::GetInstance()->ChangePriority(&mDraw);

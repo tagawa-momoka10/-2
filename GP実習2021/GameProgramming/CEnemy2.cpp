@@ -8,7 +8,7 @@
 #include "CScore.h"
 
 #define SPEED 0				//移動速度
-#define ATTACKLAG 60		//攻撃開始までのラグ
+#define ATTACKLAG 30		//攻撃開始までのラグ
 #define INVINCIBLETIME 60	//無敵時間
 #define COMBO 3*60			//コンボ持続時間2秒
 #define HP 2				//体力
@@ -109,20 +109,20 @@ void CEnemy2::Update() {
 		}
 	}
 
-	if (mAniAttack > 0){
-		mAniAttack--;
-		if (mAniAttack == 0){
-			//攻撃フラグをfalseにする
-			mAttack = false;
-		}
-	}
+	//if (mAniAttack > 0){
+	//	mAniAttack--;
+	//	if (mAniAttack == 0){
+	//		//攻撃フラグをfalseにする
+	//		mAttack = false;
+	//	}
+	//}
 
 
-	if (mAttack == false){
-		mMoving = true;
-		mAniMoving++;
+	//if (mAttack == false){
+	//	mMoving = true;
+	//	mAniMoving++;
 
-	}
+	//}
 
 }
 

@@ -39,11 +39,12 @@ void CBubble::Collision(CBase *i, CBase *y){
 
 	if (y->mTag == EPLAYER){
 		if (mRect.Collision(y->mRect)){
+
+			if (CPlayer::mHp < 100){
+				CPlayer::mHp += 20;
+			}
 			Kill();
 		}
 
-		if (CPlayer::mHp < 100){
-			CPlayer::mHp += 20;
-		}
 	}
 }

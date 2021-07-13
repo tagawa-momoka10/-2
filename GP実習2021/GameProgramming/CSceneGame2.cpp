@@ -46,10 +46,6 @@ void CSceneGame2::Init() {
 	//•¶Žš‰æ‘œ‚Ì“Ç‚Ýž‚Ý
 	CText::mFont.Load("resource\\font.tga");
 
-	/*		BGMÄ¶—p
-	Bgm.Load();
-	Bgm.Repeat();*/
-
 
 	CEnemy *Enemy = new CEnemy();
 	Enemy->mRect.x = 300;
@@ -97,16 +93,6 @@ void CSceneGame2::Init() {
 	Map->m_Rect1.y = 0;
 	Map->m_Rect1.w = 3600;
 	Map->m_Rect1.h = 350;
-
-	int map[6][8] =
-	{
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, },
-	};
 
 	CSmg*SMg = new CSmg();
 
@@ -206,9 +192,6 @@ void CSceneGame2::Update() {
 	TaskManager::GetInstance()->Update();
 	TaskManager::GetInstance()->Collision();
 	DrawTaskManager::GetInstance()->Draw();
-
-
-
 
 	//®”‚ð•¶Žš—ñ‚É•ÏŠ·‚·‚é
 	char buf[10];//9•¶Žš‚Ü‚ÅOK

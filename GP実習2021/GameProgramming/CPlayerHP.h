@@ -10,6 +10,7 @@ private:
 	DrawTask mDraw;		//描画タスク操作
 	void Update();
 	int mAniCnt;	//アニメーションカウント
+	int mHPReduCnt; //ＨＰ減らすカウント
 	int mAniMoving;	//歩行アニメーション用の変数
 
 public:
@@ -32,6 +33,8 @@ public:
 
 	int mPositionY2;	//Y座標記憶
 	int mPositionX2;
+	
+	static int mHPReduCnt;
 
 	void Render();
 	

@@ -69,9 +69,6 @@
     <ClCompile Include="CEnemyAttack.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="CPlayerAttack.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="CIcon1.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -126,6 +123,9 @@
     <ClCompile Include="CSceneGame2.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="CPlayerAttack.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Update.h">
@@ -147,9 +147,6 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="CTexture.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="CScene.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="CSceneGame.h">

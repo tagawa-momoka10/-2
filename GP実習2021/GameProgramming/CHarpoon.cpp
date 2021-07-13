@@ -130,6 +130,8 @@ void CHarpoon::Update() {
 				if (mdflag == false){
 					if (CKey::Once('K')){
 						if (CPlayer::mAttackFlag == false){
+							CPlayer::spInstance->mRect.x = mRect.x + 30 + CPlayer::mPlayerPosition;
+
 							/*if (mFx >= 0){
 							attack->mRect.x = mRect.x + ATTACKRANGE;
 							}
