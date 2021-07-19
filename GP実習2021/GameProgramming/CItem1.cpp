@@ -6,9 +6,10 @@
 #include "TaskManager.h"
 
 extern CTexture Textureitem1;
-
+#define G 0.5	//重力
+#define VJ0 2	//ジャンプ力
 CItem1::CItem1()
-
+:JumCnt(60)
 {
 	//描画タスクに登録
 	mDraw.RegistDraw(this, (DrawFunc)&CItem1::Render, DrawPriority::Opacity, "CItem1");
@@ -21,11 +22,16 @@ CItem1::CItem1()
 }
 
 void CItem1::Update(){
-		mTag = EITEM1;
-		mEnabled = true;
+	mTag = EITEM1;
+	mEnabled = true;
 	CScore::mScore += 10;
 
+	if (mEnabled = true){
+		mJump1 = mRect.y;
+		mj1 = VJ0;
+		mJumping1 = true;
 
+	}
 }
 
 void CItem1::Collision(CBase *i, CBase *y){

@@ -10,6 +10,7 @@
 
 #define ANICNT 40		//アニメーション
 #define INITIALIZE 0	//初期化
+#define SPEED 2				//移動速度
 
 extern CTexture Texturewa;
 bool CWakame::mMoving;
@@ -34,17 +35,17 @@ void CWakame::Collision(CBase *i, CBase *y){
 	//プレイヤー1と当たったとき
 
 	if (y->mTag == EPLAYER){
-		if (y->mEnabled){
+		if (mRect.Collision(y->mRect)){
 			if (CKey::Push('A')) {
-				mRect.x += 2;
+				mRect.x += SPEED;
 
 			}
 			if (CKey::Push('D')) {
-				mRect.x -= 2;
+				mRect.x -= SPEED;
 
 			}
 			if (CKey::Push('S')) {
-				mRect.y += 2;
+				mRect.y += SPEED;
 
 			}
 		}

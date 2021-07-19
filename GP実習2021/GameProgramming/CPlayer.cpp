@@ -23,7 +23,6 @@
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture TextureChara1;
 extern CTexture TextureChara1Attack;
-
 bool CPlayer::mAttackFlag;
 bool CPlayer::mHpSwitch;
 int CPlayer::mAttackCount;
@@ -49,7 +48,7 @@ CPlayer::CPlayer()
 {
 	//描画タスクに登録
 	mDraw.RegistDraw(this, (DrawFunc)&CPlayer::Render, DrawPriority::Transparent, "Player");
-	mHp = 2;
+	mHp = 200;
 	mTag = EPLAYER;
 	spInstance = this;
 	mRect.x = -200;
@@ -97,7 +96,6 @@ void CPlayer::Update() {
 		if (mAttackCount <= 0){
 			if (CKey::Push('A')) {
 				mRect.x -= 4;
-				CBase::mFx = -1;
 				mMoving = true;
 				if (mCharaSwitch == false){
 					CHarpoon::spInstance->mRect.x = mRect.x + mPlayerPosition;
@@ -105,7 +103,6 @@ void CPlayer::Update() {
 			}
 			if (CKey::Push('D')) {
 				mRect.x += 4;
-				CBase::mFx = 1;
 				mMoving = true;
 				if (mCharaSwitch == false){
 					CHarpoon::spInstance->mRect.x = mRect.x + mPlayerPosition;
@@ -114,7 +111,6 @@ void CPlayer::Update() {
 
 			if (CKey::Push('S')){
 				mRect.y -= 4;
-				CBase::mFx = 1;
 				mMoving = true;
 				if (mCharaSwitch == false){
 					CHarpoon::spInstance->mRect.x = mRect.x + mPlayerPosition;
@@ -161,20 +157,17 @@ void CPlayer::Update() {
 					mRect.x -= 16;
 					mMoving = true;
 					mDashCount--;
-
 				}
 				if (mDashCount <= 0 && CKey::Push('D')) {
 					mRect.x += 16;
 					mMoving = true;
 					mDashCount--;
-
 				}
 
 				if (mDashCount <= 0 && CKey::Push('S')){
 					mRect.y -= 16;
 					mMoving = true;
 					mDashCount--;
-
 				}
 
 				if (mDashCount > -20)

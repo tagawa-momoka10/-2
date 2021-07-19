@@ -10,13 +10,13 @@ extern CTexture TexturePlayerHPb;//HPƒoƒbƒN
 #define INITIALIZE 0;	//‰Šú‰»
 CPlayerHP*CPlayerHP::spInstance = 0;
 
+
 CPlayerHP::CPlayerHP()
 :mPositionX1(0), mPositionX2(0)
 ,mPositionY1(0), mPositionY2(0)
 , mAniCnt(0)
 , mAniMoving(0)
-, mHPReduCnt(0)
-
+, ReduCnt(60)
 {
 	//•`‰æƒ^ƒXƒN‚É“o˜^
 	mDraw.RegistDraw(this, (DrawFunc)&CPlayerHP::Render, DrawPriority::Transparent, "CPlayerHP");
@@ -46,25 +46,25 @@ void CPlayerHP::Update(){
 		mPositionY2 = m_Rect2.y;
 		mPositionX2 = m_Rect2.x;
 		m_Rect2.y = CPlayer::spInstance->mRect.y + CPlayer::spInstance->mRect.h + m_Rect2.h + 20;
-		m_Rect2.x = CPlayer::spInstance->mRect.x;
-
-		mHPReduCnt--;
+		m_Rect2.x = CPlayer::spInstance->mRect.x;	
 
 	}
-
-
 
 	if (CPlayer::mHp > 200 ){
 		CPlayer::mHp = 200;
 	}
-
+	if (ReduCnt > 0){
+		ReduCnt--;
+	}
+	if (ReduCnt == 0){
+		CPlayer::mHp -= 10;
+		ReduCnt = 60;	
+	}
+	m_Rect2.x  = CPlayer::mHp;
 }
 
 
 void CPlayerHP::Render() {
 	m_Rect1.Render(TexturePlayerHP, 0, 200, 50, 0);
 	m_Rect2.Render(TexturePlayerHP, 0, 200, 50, 0);
-
-
-
 }

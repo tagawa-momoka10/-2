@@ -100,13 +100,7 @@ void CHarpoon::Update() {
 			mdflag = true;
 			mAniDash = DASHANICNT;
 		}
-	/*	mRect.y += md;
-		if {
-			mj = INITIALIZE;
-			mDashPosition = INITIALIZE;
-			mdflag = false;
-			mAniDash = INITIALIZE;
-		}*/
+
 		if (mdflag == true){
 			mInvincibleTime = INVINCIBLETIME_DASH;
 		}
