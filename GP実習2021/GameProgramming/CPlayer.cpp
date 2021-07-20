@@ -97,6 +97,7 @@ void CPlayer::Update() {
 			if (CKey::Push('A')) {
 				mRect.x -= 4;
 				mMoving = true;
+
 				if (mCharaSwitch == false){
 					CHarpoon::spInstance->mRect.x = mRect.x + mPlayerPosition;
 				}
@@ -384,20 +385,20 @@ void CPlayer::Collision(CBase *i, CBase *y){
 			if (CKey::Push('A')) {
 				mRect.x += 1.5;
 				mMoving = true;
-				mDashCount--;
+				//mDashCount--;
 
 			}
 			if (CKey::Push('D')) {
 				mRect.x -= 0.5;
 				mMoving = true;
-				mDashCount--;
+				//mDashCount--;
 
 			}
 
 			if ( CKey::Push('S')){
 				mRect.y += 0.5;
 				mMoving = true;
-				mDashCount--;
+				//mDashCount--;
 
 			}
 		}
