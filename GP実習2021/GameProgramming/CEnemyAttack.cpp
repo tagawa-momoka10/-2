@@ -4,8 +4,6 @@
 #include "CKey.h"
 
 #define GRAVITY 1				//重力
-#define ENEMY_BULLET_SPEED 10	//ザコの弾のスピード
-#define BOSS_BULLET_SPEED 1		//ボスの弾のスピード
 #define JUMPPOWER 25			//ジャンプ力
 #define ERASELAG 60				//消えるまでのラグ
 
@@ -14,8 +12,7 @@ extern CTexture TextureEnemy2;
 
 
 CEnemyAttack::CEnemyAttack()
-: mLandingPoint_EA(0)
-, mEraseLag(ERASELAG)
+: mEraseLag(ERASELAG)
 {
 	m_Draw.RegistDraw(this, (DrawFunc)&CEnemyAttack::Render, DrawPriority::Transparent, "CEnemyAttack");
 }

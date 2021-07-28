@@ -60,7 +60,7 @@ void CPlayerHP::Update(){
 		CPlayer::mHp -= 10;
 		ReduCnt = 60;	
 	}
-	m_Rect2.x  = CPlayer::mHp;
+	
 }
 
 

@@ -12,7 +12,6 @@ private:
 	int mAniCnt;	//アニメーションカウント
 	int ReduCnt; //ＨＰ減らすカウント
 	int mAniMoving;	//歩行アニメーション用の変数
-	int Reducnt;
 
 public:
 	CPlayerHP();

@@ -6,7 +6,6 @@
 class CEnemyAttack : public CBase
 {
 private:
-	int mLandingPoint_EA;	//攻撃判定の着地点(ザコ攻撃用)
 	int mEraseLag;			//消滅するまでのラグ
 	void Update();
 	void Render();

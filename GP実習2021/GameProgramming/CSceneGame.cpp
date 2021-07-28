@@ -6,7 +6,7 @@
 #include "CRectangle.h"
 #include "CPlayer.h"
 #include "CEnemy.h"
-#include "CEnemy2.h"
+#include "CMine.h"
 #include "CText.h"
 #include "TaskManager.h"
 #include "DrawTaskManager.h"
@@ -54,7 +54,7 @@ void CSceneGame::Init() {
 
 	CEnemy *Enemy = new CEnemy();
 	Enemy->mRect.x = 300;
-	Enemy->mRect.y = -200;
+	Enemy->mRect.y = -100;
 	Enemy->mRect.mEnabled = true;
 
 	CEnemy *Enemy2 = new CEnemy();
@@ -62,20 +62,26 @@ void CSceneGame::Init() {
 	Enemy2->mRect.y = 300;
 	Enemy2->mRect.mEnabled = true;
 
-	CEnemy2 *Enemy4 = new CEnemy2();
-	Enemy4->mRect.x = -900;
-	Enemy4->mRect.y = -300;
-	Enemy4->mRect.mEnabled = true;
 
-	CEnemy2 *Enemy5 = new CEnemy2();
-	Enemy5->mRect.x = 900;
-	Enemy5->mRect.y = -300;
-	Enemy5->mRect.mEnabled = true;
 
-	CEnemy2 *Enemy6 = new CEnemy2();
-	Enemy6->mRect.x = 1050;
-	Enemy6->mRect.y = -100;
-	Enemy6->mRect.mEnabled = true;
+
+	CMine *Mine1 = new CMine();
+	Mine1->mRect.x = -200;
+	Mine1->mRect.y = -100;
+	Mine1->mRect.mEnabled = true;
+
+	CMine *Mine2 = new CMine();
+	Mine2->mRect.x = 900;
+	Mine2->mRect.y = -100;
+	Mine2->mRect.mEnabled = true;
+
+	CMine *Mine3 = new CMine();
+	Mine3->mRect.x = 1050;
+	Mine3->mRect.y = -100;
+	Mine3->mRect.mEnabled = true;
+
+
+
 
 	//ƒNƒ‰ƒX‚Ìƒƒ“ƒo•Ï”‚Ö‚Ì‘ã“ü
 	CPlayer *Player = new CPlayer();

@@ -5,7 +5,7 @@
 #include "CRectangle.h"
 #include "CPlayer.h"
 #include "CEnemy.h"
-#include "CEnemy2.h"
+#include "CMine.h"
 #include "CText.h"
 #include "TaskManager.h"
 #include "DrawTaskManager.h"
@@ -62,20 +62,20 @@ void CSceneGame2::Init() {
 	//Enemy3->mRect.y = -100;
 	//Enemy3->mRect.mEnabled = true;
 
-	CEnemy2 *Enemy4 = new CEnemy2();
-	Enemy4->mRect.x = -900;
-	Enemy4->mRect.y = -300;
-	Enemy4->mRect.mEnabled = true;
+	CMine *Mine4 = new CMine();
+	Mine4->mRect.x = -900;
+	Mine4->mRect.y = -300;
+	Mine4->mRect.mEnabled = true;
 
-	CEnemy2 *Enemy5 = new CEnemy2();
-	Enemy5->mRect.x = 900;
-	Enemy5->mRect.y = -300;
-	Enemy5->mRect.mEnabled = true;
+	CMine *Mine5 = new CMine();
+	Mine5->mRect.x = 900;
+	Mine5->mRect.y = -300;
+	Mine5->mRect.mEnabled = true;
 
-	CEnemy2 *Enemy6 = new CEnemy2();
-	Enemy6->mRect.x = 1050;
-	Enemy6->mRect.y = -100;
-	Enemy6->mRect.mEnabled = true;
+	CMine *Mine6 = new CMine();
+	Mine6->mRect.x = 1050;
+	Mine6->mRect.y = -100;
+	Mine6->mRect.mEnabled = true;
 
 	//ƒNƒ‰ƒX‚Ìƒƒ“ƒo•Ï”‚Ö‚Ì‘ã“ü
 	CPlayer *Player = new CPlayer();

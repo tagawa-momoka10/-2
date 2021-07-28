@@ -6,6 +6,7 @@
 #include "CPlayerAttack.h"
 #include "CEnemy.h"
 #include "CHarpoon.h"
+#include "CMine.h"
 
 #define G -0.1	//d—Í
 #define VJ0 4	//ƒWƒƒƒ“ƒv—Í
@@ -32,7 +33,7 @@ int CPlayer::mPlayerPosition;
 int CPlayer::mHp;
 bool CPlayer::mMoving;
 bool CPlayer::mJumping;
-int mDashCount = 0;
+int  mDashCount= 0;
 
 CPlayer*CPlayer::spInstance = 0;
 
@@ -378,9 +379,8 @@ void CPlayer::Collision(CBase *i, CBase *y){
 			mHp += 10;
 			return;
 		}
-	}
 
-	if (mRect.Collision(y->mRect)){
+
 		if (y->mTag == EWAKAME){
 			if (CKey::Push('A')) {
 				mRect.x += 1.5;
@@ -395,7 +395,7 @@ void CPlayer::Collision(CBase *i, CBase *y){
 
 			}
 
-			if ( CKey::Push('S')){
+			if (CKey::Push('S')){
 				mRect.y += 0.5;
 				mMoving = true;
 				//mDashCount--;
@@ -403,14 +403,23 @@ void CPlayer::Collision(CBase *i, CBase *y){
 			}
 		}
 
+
+
+		if (y->mEnabled){
+			if (y->mTag == EENEMYATTACK_S){
+					mHp -= 60;
+					return;
+			}
+		}
 	}
+
 
 	if (mRect.y == CEnemy::spInstance->mRect.y){
 		if (mInvincibleTime <= 0){
 			if (y->mEnabled){
 				if (mRect.Collision(y->mRect)){
 					if (y->mTag == EENEMYATTACK_S){
-						mHp -= 1;
+						mHp -= 10;
 						mInvincibleTime = INVINCIBLETIME;
 						if (CBase::mFx >= 0){
 							mRect.x -= 30;
@@ -421,8 +430,15 @@ void CPlayer::Collision(CBase *i, CBase *y){
 						return;
 					}
 
+					if (mTag == EENEMYATTACK_F){
+						mHp -= 80;
+						mInvincibleTime = INVINCIBLETIME;
+
+					}
 				}
 			}
 		}
 	}
 }
+
+

@@ -17,7 +17,10 @@ CTexture TextureChara2Attack;	//ヒロイン画像2
 CTexture TextureEnemy; //敵画像
 CTexture TextureEnemy1; //敵画像1
 
-CTexture TextureEnemy2; //敵画像2
+CTexture TextureMine1; //敵
+CTexture TextureMine2; //敵
+CTexture TextureMine3; //敵
+
 
 CTexture TexturePlayerHP;//主人公HP
 CTexture TexturePlayerHPb;//HPバック
@@ -34,10 +37,6 @@ CTexture Textureitem2;//アイテム2
 CTexture Textureitem3;//アイテム3
 CTexture Textureitem4;//アイテム4
 
-CTexture TextureSp_MG;//必殺技ゲージ空
-CTexture TextureSp_MG2;//必殺技ゲージ溜
-CTexture TextureSp_MG3;//必殺技ゲージ完全
-CTexture TextureSp_MGg;//ゲージ
 
 CTexture Texturekihou;//気泡
 CTexture TextureBuki;//武器
@@ -57,16 +56,16 @@ void Init() {
 	TextureChara2.Load("resource\\ch201.tga");
 	TextureChara2Attack.Load("resource\\ch202.tga");
 
-	TextureEnemy.Load("resource\\same.tga");
-	TextureEnemy1.Load("resource\\same s.tga");
+	TextureEnemy.Load("resource\\same.tga");//サメ
 
-	Texturewa.Load("resource\\wakame.tga"); 
+	TextureMine1.Load("resource\\mine1.png");//機雷　普通
+	TextureMine2.Load("resource\\mine2.png");//機雷　点滅
+	TextureMine3.Load("resource\\mine3.png");//機雷　爆発
 
+	Texturewa.Load("resource\\wakame.tga"); //ワカメ
 
-	TexturePlayerHP.Load("resource\\HP.tga");//主人公HP max
-	TexturePlayerHPb.Load("resource\\HPg.tga");//主人公HPバック
-
-
+	TexturePlayerHP.Load("resource\\HP.jpg");//主人公HP max
+	TexturePlayerHPb.Load("resource\\HPg.jpg");//主人公HPバック
 
 	Texturech_icon1.Load("resource\\ch_icon1.tga");//主人公
 
@@ -77,18 +76,13 @@ void Init() {
 	TextureResult.Load("resource\\result.tga");
 
 
-	Textureitem1.Load("resource\\akikan.tga");
+	Textureitem1.Load("resource\\akikan.png");
 	Textureitem2.Load("resource\\item2.tga");
 	Textureitem3.Load("resource\\item3.tga");
 	Textureitem4.Load("resource\\item4.tga");
 
-	TextureSp_MG.Load("resource\\Sp_MG.tga");
-	TextureSp_MG2.Load("resource\\Sp_MG2.tga");
-	TextureSp_MG3.Load("resource\\Sp_MG3.tga");
-	TextureSp_MGg.Load("resource\\Sp_MGg.tga");
-
-	Texturekihou.Load("resource\\kihou.tga");
-	TextureBuki.Load("resource\\mori.tga");
+	Texturekihou.Load("resource\\kihou.png");
+	TextureBuki.Load("resource\\mori.jpg");
 
 	//シーンマネージャの初期化
 	SceneManager.Init();
