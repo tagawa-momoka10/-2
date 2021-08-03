@@ -90,8 +90,8 @@ void CSceneGame::Init() {
 	Player->mRect.y = 0;
 
 
-	CHarpoon*Harpoon = new CHarpoon();
-	Harpoon->mRect.mEnabled = true;
+	//CHarpoon*Harpoon = new CHarpoon();
+	//Harpoon->mRect.mEnabled = true;
 
 
 	CMap2*Map = new CMap2();

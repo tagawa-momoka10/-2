@@ -7,17 +7,15 @@
 #include "DrawTaskManager.h"
 #include "CScore.h"
 
-#define SPEED 0				//移動速度
-#define ATTACKLAG 120		//攻撃開始までのラグ
+#define ATTACKLAG 180		//攻撃開始までのラグ
 #define INVINCIBLETIME 60	//無敵時間
 #define HP 1				//体力
 #define ANIATTACK 120		//攻撃アニメーション用
 #define SCORE 150			//スコア
 
 //extern：他のソースファイルの外部変数にアクセスする宣言
-extern CTexture TextureMine1;
+extern CTexture TextureMine;
 extern CTexture TextureMine2;
-extern CTexture TextureMine3;
 
 CMine::CMine()
 :mAttackLag(ATTACKLAG)
@@ -33,12 +31,12 @@ CMine::CMine()
 
 {
 	m_Draw.RegistDraw(this, (DrawFunc)&CMine::Render, DrawPriority::Transparent, "CMine");
-	mRect.x = 500;
-	mRect.y = 500;
-	mRect.w = 250;
-	mRect.h = 250;
+	mRect.x = 250;
+	mRect.y = 250;
+	mRect.w = 125;
+	mRect.h = 125;
 
-	mTag = EENEMY_M;
+	mTag = EMINE;
 	spInstance = this;
 }
 
@@ -75,15 +73,6 @@ void CMine::Update() {
 	}
 	//死亡フラグが立つとリターン
 	if (mDeath)return;
-
-	////無敵時間が0になるまでカウントダウン
-	//if (mInvincibleTime > 0){
-	//	mInvincibleTime--;
-	//}
-	////無敵時間が0になると無敵状態解除
-	//if (mInvincibleTime <= 0){
-	//	mInvincibleFlag = false;
-	//}
 
 	if (mRect.y == CPlayer::spInstance->mRect.y&&mAttack == false){
 		mAttack = true;
@@ -133,160 +122,71 @@ void CMine::Update() {
 }
 
 void CMine::Render() {
-	////右向き
-	//if (mRect.x < CPlayer::spInstance->mRect.x){
-	//	//死亡フラグが立っていないとき
-	//	if (mDeath == false){
-	//		//無敵フラグが立っていないとき
-	//		if (mInvincibleFlag == false){
-	//			//移動していないとき
-	//			if (mMoving == false){
-	//				if (mAniAttack == 0){
-	//					mRect.Render(TextureMine1, 0, 600, 600, 0);
-	//				}
-	//				//攻撃時のアニメーション
-	//				if (mAniAttack > 180){
-	//					mRect.Render(TextureMine2, 0, 600, 600, 0);
-	//				}
-	//				else if (mAniAttack > 0){
-	//					mRect.Render(TextureMine2, 0, 600, 600, 0);
-	//				}
-	//			}
-	//		}
-	//		//無敵フラグが立っていないとき
-	//		else{
-	//			//点滅する
-	//			if (mInvincibleTime % 10 < 5){
-	//				mRect.Render(TextureMine2, 0, 0, 0, 0);
-	//			}
-	//			else{
-	//				//移動していないとき
-	//				if (mMoving == false){
-	//					if (mAniAttack == 0){
-	//						mRect.Render(TextureMine1, 0, 600, 600, 0);
-	//					}
-	//					//攻撃時のアニメーション
-	//					if (mAniAttack > 180){
-	//						mRect.Render(TextureMine3, 0, 600, 600, 0);
-	//					}
-	//					else if (mAniAttack > 0){
-	//						mRect.Render(TextureMine3, 0, 600, 600, 0);
-	//					}
-	//				}
-	//			}
-	//		}
-	//	}
-	//}
-	//左向き
-	//else{
-		//死亡フラグが立っていないとき
-		if (mDeath == false){
-			//無敵フラグが立っていないとき
-			if (mInvincibleFlag == false){
-				if (mMoving == false){
-					if (mAniAttack == 0){
-						mRect.Render(TextureMine1, 0, 600, 600, 0);
-					}
-					//攻撃時のアニメーション
-					if (mAniAttack > 180){
-						mRect.Render(TextureMine2, 0, 600, 600, 0);
-					}
-					else if (mAniAttack > 0){
-						mRect.Render(TextureMine2, 0, 600, 600, 0);
-					}
+
+	//死亡フラグが立っていないとき
+	if (mDeath == false){
+		//無敵フラグが立っていないとき
+		if (mInvincibleFlag == false){
+			if (mMoving == false){
+				if (mAniAttack == 0){
+					mRect.Render(TextureMine, 0, 800, 800, 0);
 				}
-				else{
-					if (mAniMoving % 180 < 45){
-						mRect.Render(TextureMine2, 0, 600, 600, 0);
-					}
-					else if (mAniMoving % 180 < 90){
-						mRect.Render(TextureMine2, 0, 600, 600, 0);
-					}
-					else if (mAniMoving % 180 < 135){
-						mRect.Render(TextureMine2, 0, 600, 600, 0);
-					}
-					else if (mAniMoving % 180 < 180){
-						mRect.Render(TextureMine2, 0, 600, 600, 0);
-					}
+				//攻撃時のアニメーション
+				if (mAniAttack > 180){
+					mRect.Render(TextureMine2, 0, 800, 800, 0);
 				}
-			//}
-			////無敵フラグが立っているとき
-			//else{
-			//	//点滅する
-			//	if (mInvincibleTime % 10 < 5){
-			//		mRect.Render(TextureEnemy2, 0, 0, 0, 0);
-			//	}
-			//	else{
-			//		if (mMoving == false){
-			//			if (mAniAttack == 0){
-			//				mRect.Render(TextureEnemy2, 130, 254, 510, 313);
-			//			}
-			//			//攻撃時のアニメーション
-			//			if (mAniAttack > 60){
-			//				mRect.Render(TextureEnemy2, 3, 127, 766, 568);
-			//			}
-			//			else if (mAniAttack > 0){
-			//				mRect.Render(TextureEnemy2, 131, 255, 766, 568);
-			//			}
-			//		}
-			//		else{
-			//			if (mAniMoving % 80 < 20){
-			//				mRect.Render(TextureEnemy2, 2, 126, 510, 313);
-			//			}
-			//			else if (mAniMoving % 80 < 40){
-			//				mRect.Render(TextureEnemy2, 130, 254, 510, 313);
-			//			}
-			//			else if (mAniMoving % 80 < 60){
-			//				mRect.Render(TextureEnemy2, 259, 383, 510, 313);
-			//			}
-			//			else if (mAniMoving % 80 < 80){
-			//				mRect.Render(TextureEnemy2, 130, 254, 510, 313);
-			//			}
-			//		}
-			//	}
-			//}
+				else if (mAniAttack > 0){
+					mRect.Render(TextureMine2, 0, 800, 800, 0);
+				}
+			}
+
+			else{
+				if (mAniMoving % 180 < 60){
+					mRect.Render(TextureMine2, 0, 800, 800, 0);
+				}
+				else if (mAniMoving % 180 < 90){
+					mRect.Render(TextureMine2, 0, 800, 800, 0);
+				}
+				else if (mAniMoving % 180 < 180){
+					mRect.Render(TextureMine2, 0, 800, 800, 0);
+				}
+
+			}
+
 		}
-		////死亡フラグが立っているとき
-		//else{
-		//	if (mDeathCount > 30){
-		//		mRect.Render(TextureMine3, 0, 600, 600, 0);
-		//	}
-		//	else{
-		//		mRect.Render(TextureMine3, 0, 600, 600, 0);
-		//	}
-		//}
 	}
 }
 
 void CMine::Collision(CBase *i, CBase *y) {
 	//if (mRect.y - CPlayer::spInstance->mRect.y < 20){
 	//}
-
-	//プレイヤーの攻撃に当たったとき
-	if (mTag == EPLAYERATTACK){
-		if (mRect.Collision(y->mRect)){
-			//無敵状態で無ければ
-			if (mInvincibleFlag == false){
-				//体力が減る
-				mHp -= 1;
-			}
-			return;
-		}
-	}
+	////プレイヤーの攻撃に当たったとき
+	//if (y->mTag == EPLAYERATTACK){
+	//	if (mRect.Collision(y->mRect)){
+	//		//無敵状態で無ければ
+	//		if (mInvincibleFlag == false){
+	//			//体力が減る
+	//			mHp -= 1;
+	//		}
+	//		return;
+	//	}
+	//}
 
 	//プレイヤーに当たったとき
-	if (mTag == EPLAYER){
+	if (y->mTag == EPLAYER){
 		if (mRect.Collision(y->mRect)){
+
 			if (ReduCnt > 0){
 				ReduCnt--;
-			}
-			if (ReduCnt == 0){
-				mAttack = true;
-				ReduCnt++;
-				if (ATTACKLAG == 180){
-					Kill();
+				mMoving == false;
+				if (ReduCnt < 0){
+					ReduCnt++;
+					if (mAttackLag = ATTACKLAG){
+						Kill();
+					}
 				}
 			}
+
 		}
 		return;
 	}

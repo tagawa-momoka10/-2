@@ -17,9 +17,8 @@ CTexture TextureChara2Attack;	//ヒロイン画像2
 CTexture TextureEnemy; //敵画像
 CTexture TextureEnemy1; //敵画像1
 
-CTexture TextureMine1; //敵
+CTexture TextureMine; //敵
 CTexture TextureMine2; //敵
-CTexture TextureMine3; //敵
 
 
 CTexture TexturePlayerHP;//主人公HP
@@ -58,9 +57,8 @@ void Init() {
 
 	TextureEnemy.Load("resource\\same.tga");//サメ
 
-	TextureMine1.Load("resource\\mine1.png");//機雷　普通
-	TextureMine2.Load("resource\\mine2.png");//機雷　点滅
-	TextureMine3.Load("resource\\mine3.png");//機雷　爆発
+	TextureMine.Load("resource\\mine.png");//機雷　
+	TextureMine2.Load("resource\\mine2.png");//機雷　爆発
 
 	Texturewa.Load("resource\\wakame.tga"); //ワカメ
 

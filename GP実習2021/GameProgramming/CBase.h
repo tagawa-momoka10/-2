@@ -20,9 +20,7 @@ public:
 		EITEM2,
 		EITEM3,
 		EITEM4,
-		EPLAYER,			//ŽålŒö
-		EPLAYERATTACK,	//UŒ‚
-		EENEMY_M,
+		EMINE,
 		EENEMYATTACK_F,
 		EENEMMY_SS,
 		EENEMY_S,
@@ -34,7 +32,8 @@ public:
 		EKIHOU,
 		EHARPOON,
 		EPLAYERHP,
-
+		EPLAYER,			//ŽålŒö
+		EPLAYERATTACK,	//UŒ‚
 	};
 	ETag mTag;
 };

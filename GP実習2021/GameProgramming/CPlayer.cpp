@@ -99,24 +99,24 @@ void CPlayer::Update() {
 				mRect.x -= 4;
 				mMoving = true;
 
-				if (mCharaSwitch == false){
-					CHarpoon::spInstance->mRect.x = mRect.x + mPlayerPosition;
-				}
+				//if (mCharaSwitch == false){
+				//	CHarpoon::spInstance->mRect.x = mRect.x + mPlayerPosition;
+				//}
 			}
 			if (CKey::Push('D')) {
 				mRect.x += 4;
 				mMoving = true;
-				if (mCharaSwitch == false){
-					CHarpoon::spInstance->mRect.x = mRect.x + mPlayerPosition;
-				}
+				//if (mCharaSwitch == false){
+				//	CHarpoon::spInstance->mRect.x = mRect.x + mPlayerPosition;
+				//}
 			}
 
 			if (CKey::Push('S')){
 				mRect.y -= 4;
 				mMoving = true;
-				if (mCharaSwitch == false){
-					CHarpoon::spInstance->mRect.x = mRect.x + mPlayerPosition;
-				}
+				//if (mCharaSwitch == false){
+				//	CHarpoon::spInstance->mRect.x = mRect.x + mPlayerPosition;
+				//}
 			}
 		}
 		if (mMoving == true){
@@ -288,10 +288,9 @@ void CPlayer::Render() {
 					}
 
 				}
+
+
 				else{
-
-
-
 					if (mAniMoving % 60 < 10){
 						mRect.Render(TextureChara1, 0, 200, 400, 200);
 					}
@@ -311,6 +310,8 @@ void CPlayer::Render() {
 						mRect.Render(TextureChara1, 400, 600, 600, 400);
 					}
 				}
+
+
 			}
 			if (mAniDash > 0){
 				if (CBase::mFx >= 0){
@@ -324,6 +325,8 @@ void CPlayer::Render() {
 						mRect.Render(TextureChara1, 522, 694, 767, 525);
 					}
 				}
+
+
 				else{
 					if (mAniDash == DASHANICNT){
 						mRect.Render(TextureChara1, 7, 185, 764, 537);
@@ -335,7 +338,11 @@ void CPlayer::Render() {
 						mRect.Render(TextureChara1, 694, 522, 767, 525);
 					}
 				}
+
+
 			}
+
+
 		}
 		else if (mChara1Die > 30){
 			if (CBase::mFx >= 0){
@@ -434,6 +441,23 @@ void CPlayer::Collision(CBase *i, CBase *y){
 						mHp -= 80;
 						mInvincibleTime = INVINCIBLETIME;
 
+					}
+				}
+			}
+		}
+	}
+
+
+	if (mRect.y == CEnemy::spInstance->mRect.y){
+		if (mInvincibleTime <= 0){
+			if (y->mEnabled){
+				if (mRect.Collision(y->mRect)){
+					if (y->mTag == EMINE){
+						//if (mAttack == true){
+						//	mHp-=50;
+						//}
+
+						return;
 					}
 				}
 			}
