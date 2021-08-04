@@ -49,7 +49,7 @@ CSceneManager SceneManager;
 //InitŠÖ”
 //Å‰‚Éˆê“x‚¾‚¯ŒÄ‚Î‚ê‚éŠÖ”
 void Init() {
-	TextureChara1.Load("resource\\hasiri.tga");
+	TextureChara1.Load("resource\\player.png");
 	TextureChara1Attack.Load("resource\\ch102.tga");
 
 	TextureChara2.Load("resource\\ch201.tga");

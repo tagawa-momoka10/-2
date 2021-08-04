@@ -1,7 +1,14 @@
-﻿2021/08/03 23:02:27 にビルドを開始しました。
+﻿2021/08/04 10:13:11 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\GameProgramming\GameProgramming.vcxproj" (Build ターゲット)。
-     1>Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Release\GameProgramming.exe" /INCREMENTAL:NO /NOLOGO glew32.lib glfw3.lib glfw3dll.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Release\GameProgramming.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Release\GameProgramming.lib" /MACHINE:X86 /SAFESEH Release\CBubble.obj
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CSceneGame.cpp
+         CSceneGame.cpp
+     1>CSceneGame.cpp(263): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>CSceneGame.cpp(270): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 'sprintf' の宣言を確認してください。
+     1>CSceneGame.cpp(283): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Release\GameProgramming.exe" /INCREMENTAL:NO /NOLOGO glew32.lib glfw3.lib glfw3dll.lib glut32.lib SOIL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Release\GameProgramming.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Release\GameProgramming.lib" /MACHINE:X86 /SAFESEH Release\CBubble.obj
          Release\CBase.obj
          Release\CEnemy.obj
          Release\CMine.obj
@@ -38,12 +45,12 @@
          Release\TaskManager.obj
          Release\Update.obj
          Release\main.obj
-     1>CTexture.obj : error LNK2001: 外部シンボル "_SOIL_create_OGL_texture" は未解決です。
-     1>CTexture.obj : error LNK2001: 外部シンボル "_SOIL_free_image_data" は未解決です。
-     1>CTexture.obj : error LNK2001: 外部シンボル "_SOIL_load_image" は未解決です。
-     1>C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Release\GameProgramming.exe : fatal error LNK1120: 3 件の未解決の外部参照
-     1>プロジェクト "C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\GameProgramming\GameProgramming.vcxproj" (Build ターゲット) のビルドが終了しました -- 失敗。
+     1>LINK : warning LNK4098: defaultlib 'LIBCMT' は他のライブラリの使用と競合しています。/NODEFAULTLIB:library を使用してください。
+         コード生成しています。
+         コード生成が終了しました。
+         GameProgramming.vcxproj -> C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\Release\GameProgramming.exe
+     1>プロジェクト "C:\Users\himaw\OneDrive\デスクトップ\2D\game2\GP実習2021\GameProgramming\GameProgramming.vcxproj" (Build ターゲット) のビルドが完了しました。
 
-ビルドに失敗しました。
+ビルドに成功しました。
 
-経過時間 00:00:00.51
+経過時間 00:00:02.14

@@ -52,10 +52,10 @@ CPlayer::CPlayer()
 	mHp = 200;
 	mTag = EPLAYER;
 	spInstance = this;
-	mRect.x = -200;
-	mRect.y = 100;
-	mRect.w = 55;
-	mRect.h = 80;
+	mRect.x = 100;
+	mRect.y = 200;
+	mRect.w = 50;
+	mRect.h = 100;
 	mJumping = false;
 	mAttackFlag = true;
 	mHpSwitch = false;
@@ -227,10 +227,10 @@ void CPlayer::Render() {
 		if (mAttackCount <= 0  && mInvincibleTime == 0
 			&& mMoving == false && mDflag == false && mHp > 0){
 			if (CBase::mFx >= 0){
-				mRect.Render(TextureChara1, 200, 0, 200, 0);
+				mRect.Render(TextureChara1, 0, 400, 500, 0);
 			}
 			else{
-				mRect.Render(TextureChara1, 0, 200, 200, 0);
+				mRect.Render(TextureChara1, 0, 400, 500, 0);
 			}
 		}
 		if (mInvincibleTime != 0 && mAttackCount <= 0 && mDflag == false && mHp > 0){
@@ -238,10 +238,10 @@ void CPlayer::Render() {
 			mAniCnt %= ANICNT;
 			if (mAniCnt < ANICNT / 2){
 				if (CBase::mFx >= 0){
-					mRect.Render(TextureChara1, 10, 220, 1020, 773);
+					mRect.Render(TextureChara1, 0, 400, 500, 0);
 				}
 				else{
-					mRect.Render(TextureChara1, 220, 10, 1020, 773);
+					mRect.Render(TextureChara1, 0, 400, 500, 0);
 				}
 			}
 		}
@@ -251,40 +251,40 @@ void CPlayer::Render() {
 				mAniCnt %= ANICNT;
 				if (mAniCnt < ANICNT / 2){
 					if (CBase::mFx >= 0){
-						mRect.Render(TextureChara1Attack, 0, 200, 200, 0);
+						mRect.Render(TextureChara1Attack, 0, 400, 500, 0);
 					}
 					else{
-						mRect.Render(TextureChara1Attack, 200, 0, 254, 14);
+						mRect.Render(TextureChara1Attack, 0, 400, 500, 0);
 					}
 				}
 				else{
 					if (CBase::mFx >= 0){
-						mRect.Render(TextureChara1Attack, 280, 468, 254, 14);
+						mRect.Render(TextureChara1Attack, 0, 400, 500, 0);
 					}
 					else{
-						mRect.Render(TextureChara1Attack, 468, 280, 254, 14);
+						mRect.Render(TextureChara1Attack, 0, 400, 500, 0);
 					}
 				}
 			}
 			if (mMoving == true && mInvincibleTime <= 0 && mDflag == false){
 				if (CBase::mFx >= 0){
 					if (mAniMoving % 60 < 10){
-						mRect.Render(TextureChara1, 200, 0, 400, 200);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniMoving % 60 < 20){
-						mRect.Render(TextureChara1, 400, 200, 400, 200);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniMoving % 60 < 30){
-						mRect.Render(TextureChara1, 600, 400, 400, 200);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniMoving % 60 < 40){
-						mRect.Render(TextureChara1, 200, 0, 600, 400);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniMoving % 60 < 50){
-						mRect.Render(TextureChara1, 400, 200, 600, 400);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniMoving % 60 < 60){
-						mRect.Render(TextureChara1, 600, 400, 600, 400);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 
 				}
@@ -292,22 +292,22 @@ void CPlayer::Render() {
 
 				else{
 					if (mAniMoving % 60 < 10){
-						mRect.Render(TextureChara1, 0, 200, 400, 200);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniMoving % 60 < 20){
-						mRect.Render(TextureChara1, 200, 400, 400, 200);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniMoving % 60 < 30){
-						mRect.Render(TextureChara1, 400, 600, 400, 200);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniMoving % 60 < 40){
-						mRect.Render(TextureChara1, 0, 200, 600, 400);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniMoving % 60 < 50){
-						mRect.Render(TextureChara1, 200, 400, 600, 400);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniMoving % 60 < 60){
-						mRect.Render(TextureChara1, 400, 600, 600, 400);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 				}
 
@@ -316,26 +316,26 @@ void CPlayer::Render() {
 			if (mAniDash > 0){
 				if (CBase::mFx >= 0){
 					if (mAniDash == DASHANICNT){
-						mRect.Render(TextureChara1, 7, 185, 764, 537);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniDash > 0){
-						mRect.Render(TextureChara1, 266, 461, 762, 520);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniDash == 0){
-						mRect.Render(TextureChara1, 522, 694, 767, 525);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 				}
 
 
 				else{
 					if (mAniDash == DASHANICNT){
-						mRect.Render(TextureChara1, 7, 185, 764, 537);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniDash > 0){
-						mRect.Render(TextureChara1, 461, 266, 762, 520);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 					else if (mAniDash == 0){
-						mRect.Render(TextureChara1, 694, 522, 767, 525);
+						mRect.Render(TextureChara1, 0, 400, 500, 0);
 					}
 				}
 
@@ -346,18 +346,18 @@ void CPlayer::Render() {
 		}
 		else if (mChara1Die > 30){
 			if (CBase::mFx >= 0){
-				mRect.Render(TextureChara1Attack, 17, 237, 728, 553);
+				mRect.Render(TextureChara1Attack, 0, 400, 500, 0);
 			}
 			else {
-				mRect.Render(TextureChara1Attack, 237, 17, 728, 553);
+				mRect.Render(TextureChara1Attack, 0, 400, 500, 0);
 			}
 		}
 		else {
 			if (CBase::mFx >= 0){
-				mRect.Render(TextureChara1Attack, 256, 510, 759, 621);
+				mRect.Render(TextureChara1Attack, 0, 400, 500, 0);
 			}
 			else {
-				mRect.Render(TextureChara1Attack, 510, 256, 759, 621);
+				mRect.Render(TextureChara1Attack, 0, 400, 500, 0);
 			}
 		}
 	}

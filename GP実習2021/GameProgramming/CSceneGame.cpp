@@ -80,7 +80,15 @@ void CSceneGame::Init() {
 	Mine3->mRect.y = -100;
 	Mine3->mRect.mEnabled = true;
 
+	CMine *Mine4 = new CMine();
+	Mine4->mRect.x = 2500;
+	Mine4->mRect.y = -100;
+	Mine4->mRect.mEnabled = true;
 
+	CMine *Mine5 = new CMine();
+	Mine5->mRect.x = 2500;
+	Mine5->mRect.y = 800;
+	Mine5->mRect.mEnabled = true;
 
 
 	//ƒNƒ‰ƒX‚Ìƒƒ“ƒo•Ï”‚Ö‚Ì‘ã“ü
@@ -218,7 +226,9 @@ void CSceneGame::Init() {
 
 
 	CPlayerHP *PlayerHP = new CPlayerHP();
-
+	PlayerHP->mRect.mEnabled = true;
+	PlayerHP->mRect.x = -600;
+	PlayerHP->mRect.y = 100;
 
 }
 
